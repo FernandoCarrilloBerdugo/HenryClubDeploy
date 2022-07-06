@@ -1,0 +1,62 @@
+/*BOTONES*/
+.botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  margin-top: 530px;
+  margin-left: -600px;
+  cursor: pointer;
+}
+
+.botones button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: black;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.botones button:hover {
+  background-image: linear-gradient(#434c9a, #9c824a);
+}
+
+.botones button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.botones button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.botones button:hover span {
+  padding-right: 15px;
+}
+.botones button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*FUENTES*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap');
+
+/* .contenedorGeneral{
+  background-color: black;
+  background-image: url('../../utils/fotos/fondoHenry.jpg');
+  background-image: linear-gradient(to right,  rgb(255, 255, 255),#222861, #ffffff);;
+} */

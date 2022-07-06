@@ -1,0 +1,19 @@
+.contenedor select {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #9c824a34;
+  color: rgb(0, 0, 0);
+}
+.contenedor select:focus {
+  background-image: linear-gradient(#434c9a, #9c824a);
+}
+.contenedor option {
+  background-color: rgba(245, 245, 220, 0.238);
+  font-size: 13px;
+  font-weight: 700;
+}

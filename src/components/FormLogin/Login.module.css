@@ -1,0 +1,143 @@
+.img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 20px 0px;
+}
+
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginTitle {
+  position: absolute;
+  top: 120px;
+  color: gray;
+}
+.loginTitle2 {
+  position: absolute;
+  top: 180px;
+  color: gray;
+}
+
+.wrapper {
+  width: 50%;
+  height: 75%;
+  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.center {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.or {
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 20px;
+  color: gray;
+  background-color: white;
+  font-weight: bold;
+}
+
+.line {
+  width: 0.5px;
+  height: 70%;
+  background-color: lightgray;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.loginButtongithub {
+  width: 150px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: black;
+}
+.loginButtonfacebook {
+  width: 150px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #507cc0;
+}
+.loginButtongoogle {
+  width: 150px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #df4930;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.input {
+  width: 200px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  width: 200px;
+  background-color: rgba(8, 13, 88, 0.671);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.errors {
+  text-align: start;
+  color: #f42007;
+  font-size: 14px;
+  margin: 3px;
+}

@@ -1,0 +1,104 @@
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch;
+  background-color: #ffffff;
+  position: relative;
+  border-bottom: solid 1px #e78345;
+  height: 15vh;
+}
+
+.titulo {
+  position: absolute;
+  color: #e78345;
+  top: 0;
+  left: 10%;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 5px rgb(73, 70, 70);
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.logo {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 8vw;
+  height: 15vh;
+  /* box-shadow: 0 0 10px 10px gray; */
+}
+.nombredeUsuario {
+  display: none;
+}
+
+.botonAdmin {
+  position: absolute;
+  top: 2.5vh;
+  float: right;
+}
+
+.searchbar {
+  top: 2.5vh;
+  right: 18vw;
+  position: absolute;
+}
+
+.botonDeslizable {
+  position: absolute;
+  top: 0;
+  left: 45vw;
+}
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  left: 43vw;
+}
+.dropdownDos {
+  position: relative;
+  display: inline-block;
+  top: -2vh;
+  left: 3vw;
+}
+
+.dropdown-content {
+  display: none;
+
+  background-color: #f1f1f1;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 180px;
+  top: 9vh;
+  left: 43vw;
+  border-radius: 5px;
+}
+
+/* links de adentro */
+.dropdown-content a {
+  color: rgb(0, 0, 0);
+  padding: 0px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* cambiar el color en hover */
+.dropdown-content a:hover {
+  background-color: rgba(126, 126, 126, 0.336);
+  border-radius: 5px;
+  font-size: 18px;
+  transition: all 0.5s ease;
+}
+
+/* mostrar el menu en hover, se puede cambiar a focus */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* cambiiar el color del boton cuando se muestra el contenido */
+/* .dropdown:hover .botonDeslizable {
+  background-image: linear-gradient(#434c9a, #9c824a);
+} */

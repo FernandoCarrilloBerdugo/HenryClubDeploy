@@ -1,0 +1,47 @@
+/* .contenedorGeneral {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  width: 100%;
+} */
+.contenedorGeneral .titulo {
+  font-size: 40px;
+  text-align: center;
+}
+.contenedorGeneral .titulo h4 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: -40px;
+}
+.contenedorGeneral .infoDatos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+
+  width: 20%;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.394);
+  border-radius: 5px;
+}
+.contenedorGeneral ul li {
+  list-style: none;
+}
+.contenedorGeneral .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  margin-top: 50px;
+  border: solid 1px black;
+  width: 40%;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.contenedorGeneral .form textarea {
+  resize: none;
+}

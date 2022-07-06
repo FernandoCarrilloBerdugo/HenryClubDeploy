@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap');
+
+.contenedorGeneral {
+  background-image: url('../../utils/fotos/fondoLandingPosta.png');
+  /* background-image: url('../../utils/fotos/LOGODIA.png'); */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contenedorGeneral .titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-top: 10%;
+  position: absolute;
+  height: 30vh;
+  width: 50vw;
+  top: 15%;
+  left: 25%;
+  font-size: 60px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  /* transform: rotate(-5deg); */
+  text-transform: uppercase;
+  text-shadow: 5px 10px 5px gray;
+}
+.contenedorGeneral .logo img {
+  width: 500px;
+  height: 100vh;
+  border-radius: 10px;
+  position: absolute;
+  top: 3%;
+  left: 0%;
+}
+.contenedorGeneral .botones {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 20vw;
+  height: 10vh;
+  border-radius: 10px;
+  top: 65%;
+  left: 36%;
+  cursor: pointer;
+  border: solid 1px rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.397);
+  box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(5px);
+}
+
+.contenedorGeneral .botones button {
+  border: none;
+
+  width: 8vw;
+  height: 2vw;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+button {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+button:focus,
+button:hover {
+  color: #e78345;
+}
+
+button:focus:after,
+button:hover:after {
+  width: 100%;
+  left: 0%;
+  color: #e78345;
+}
+
+button:after {
+  content: '';
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  color: #e78345;
+  width: 0%;
+  height: 2px;
+  background-color: #e78345;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}

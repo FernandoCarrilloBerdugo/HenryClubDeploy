@@ -1,0 +1,45 @@
+.calendarioContainer {
+    position: relative;
+    z-index: 1;
+
+}
+.calendario{
+    z-index: 1;
+    position: relative;
+    overflow-y:visible
+}
+
+.formCalendario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.evento {
+    top: 20%;
+    left: 50%;
+    background-color: white;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+    display: none;
+}
+
+button span:after {
+    content: none;
+}
+
+.fc-view-harness {
+    display: flex;
+    margin: auto;
+    height: 550px;
+    width: 50%;
+
+}
+
+.diasSemanales {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+}

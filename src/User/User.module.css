@@ -1,0 +1,31 @@
+.header {
+    border-bottom: 3px solid gray;
+  }
+  
+  .barralateral {
+    text-align: left;
+    width: 14rem;
+    height: calc(100vh - 52px);
+    border-right: 2px solid gray;
+  }
+  ul {
+    list-style: none;
+    padding: 1rem 2rem;
+    margin-block-start: 0;
+  
+    height: 100%;
+  }
+  li {
+    margin-bottom: 1rem;
+  }
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+  .container {
+    display: flex;
+  }
+  .mostrar {
+    width: 100%;
+  }
+  

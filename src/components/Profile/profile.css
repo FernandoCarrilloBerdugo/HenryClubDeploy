@@ -1,0 +1,125 @@
+.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  width: 90%;
+  height: 100vh;
+}
+.tituloPerfil {
+  font-size: 40px;
+  text-shadow: 3px 3px 3px grey;
+}
+.contenido img {
+  width: 250px;
+  height: 250px;
+
+  position: absolute;
+  top: 25vh;
+  left: 2vw;
+  border-radius: 50%;
+}
+
+.datosDeUsuario {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  margin: auto;
+  width: 80%;
+  height: 100%;
+  margin-right: 50px;
+}
+
+.datosDeUsuario .datosUsuario {
+  display: flex;
+  justify-content: space-around;
+
+  flex-direction: column;
+  margin: auto;
+  width: 33%;
+  height: 60%;
+  text-align: justify;
+}
+.datosDeUsuario .datosUsuario h1 {
+  margin-bottom: -15px;
+
+  text-shadow: 5px 5px 5px grey;
+}
+.datosDeUsuario .datosUsuario h2 {
+  margin-bottom: -15px;
+  text-align: justify;
+}
+.datosDeUsuario .datosUsuario h4 {
+  text-align: justify;
+  font-size: 20px;
+}
+.datosDeUsuario .datosTutor {
+  display: flex;
+  justify-content: space-around;
+
+  flex-direction: column;
+  margin: auto;
+  width: 33%;
+  height: 70%;
+  text-align: justify;
+}
+.datosDeUsuario .datosTutor h1 {
+  margin-bottom: -15px;
+  text-shadow: 5px 5px 5px grey;
+}
+.datosDeUsuario .datosTutor h2 {
+  margin-bottom: -20%;
+  text-align: justify;
+}
+.datosDeUsuario .datosTutor h4 {
+  text-align: justify;
+  font-size: 20px;
+}
+.datosDeUsuario .inscripciones {
+  display: flex;
+  justify-content: space-around;
+
+  flex-direction: column;
+  margin: auto;
+  width: 33%;
+  height: 70%;
+  text-align: justify;
+  text-transform: uppercase;
+}
+.datosDeUsuario .inscripciones h1 {
+  margin-bottom: -15px;
+  text-shadow: 5px 5px 5px grey;
+}
+.datosDeUsuario .inscripciones h2 {
+  margin-bottom: -10px;
+  text-align: justify;
+}
+.datosDeUsuario .inscripciones h4 {
+  text-align: justify;
+  font-size: 20px;
+}
+.datosDeUsuario .inscripciones ul li {
+  text-align: justify;
+}
+.aPagar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  border: double 5px black;
+  padding: 20px;
+  margin-right: 250px;
+  box-shadow: 0 0 30px 10px grey;
+}
+.aPagar .aranceles {
+  font-size: 40px;
+  text-shadow: 5px 5px 5px grey;
+}
+.aPagar .precio {
+  font-size: 25px;
+}

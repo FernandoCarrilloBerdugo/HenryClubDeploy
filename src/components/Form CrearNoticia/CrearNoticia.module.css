@@ -1,0 +1,71 @@
+.contenedorGeneral .titulo {
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border: solid 4px black;
+  border-radius: 10px;
+  width: 40%;
+  height: 100%;
+  padding-top: 20px;
+}
+.form .inputName {
+  width: 40%;
+  transition: all 0.3s ease;
+  margin-bottom: -10px;
+  font-weight: 700;
+  text-align: center;
+}
+.form .inputName:focus {
+  width: 60%;
+  transition: all 0.3s ease;
+}
+
+.form .inputSubt {
+  width: 40%;
+  transition: all 0.3s ease;
+  margin-bottom: -10px;
+  font-weight: 700;
+  text-align: center;
+}
+.form .inputSubt:focus {
+  width: 60%;
+  transition: all 0.3s ease;
+}
+
+.form .textarea {
+  resize: none;
+  text-align: center;
+  font-weight: 700;
+}
+.form .textarea:focus {
+  box-shadow: 0 0 15px 5px rgba(128, 128, 128, 0.456);
+}
+.form .labelTit {
+  margin-bottom: 10px;
+}
+.form .labelSubt {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.form .labelDescr {
+  margin-top: 20px;
+  margin-bottom: 13px;
+}
+.form .error {
+  color: red;
+}
+.form img {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  width: 40%;
+  height: 40%;
+}

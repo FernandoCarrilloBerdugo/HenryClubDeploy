@@ -1,0 +1,39 @@
+.header {
+  border-bottom: 1px solid #e78345;
+}
+
+.barralateral {
+  text-align: left;
+  width: 14rem;
+  height: calc(100vh - 52px);
+  border-right: 2px solid #e78345;
+}
+ul {
+  list-style: none;
+  padding: 1rem 2rem;
+  margin-block-start: 0;
+
+  height: 100%;
+}
+li {
+  margin-bottom: 1rem;
+}
+li:focus {
+  color: #e78345;
+}
+a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease;
+}
+a:focus {
+  color: #e78345;
+
+  transition: all 0.3s ease;
+}
+.container {
+  display: flex;
+}
+.mostrar {
+  width: 100%;
+}

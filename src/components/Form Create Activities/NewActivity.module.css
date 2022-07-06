@@ -1,0 +1,77 @@
+.new{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+   
+}
+.loginTitle2{
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    font-size: 40px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: double 4px black;
+    border-radius: 3%;
+    width: 50%;
+    height: fit-content;
+    padding-top: 20px;
+    background-color: rgb(177, 177, 177);
+  }  
+
+  .Form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Form button{
+    margin: 8%;
+  }
+  .input{
+    margin-bottom: 10px; 
+    width: 70%;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 20px;
+  }
+  .select{
+    margin-bottom: 10px; 
+    width: 100%;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  text-align: center;
+  align-items: center;
+  padding: 10px 33px;
+  }
+
+  .input:focus{
+    width: 120%;
+    transition: all 0.3s ease;
+  }
+  .submit{
+    width: 200px;
+    background-color: rgba(8, 13, 88, 0.671);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .errors{
+    color: black;
+    font-size: 11px;
+   text-decoration: underline;
+   text-decoration-color: red;
+   
+  }
+  
