@@ -1,6 +1,8 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+const url = "https://backhenryclub.herokuapp.com"
+
 import {
   ALL_MEMBERS,
   ALL_IMAGES,
@@ -44,7 +46,7 @@ import {
 export function getMembers() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/user');
+      let { data } = await axios.get(`${url}/user`);
       // window.localStorage.setItem(
       //   'logueado', data
       // )
@@ -58,7 +60,7 @@ export function getMembers() {
 export function getContacts() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/contact');
+      let { data } = await axios.get(`${url}/contact`);
       return dispatch({ type: ALL_CONTACTS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -80,7 +82,7 @@ export function getGallery() {
 export function getNews() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/news');
+      let { data } = await axios.get(`${url}/news`);
       return dispatch({ type: ALL_NEWS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -91,7 +93,7 @@ export function getNews() {
 export function getRoles() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/role');
+      let { data } = await axios.get(`${url}/role`);
       return dispatch({ type: ALL_ROLES, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -102,7 +104,7 @@ export function getRoles() {
 export function getInscription() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/inscription');
+      let { data } = await axios.get(`${url}/inscription`);
       return dispatch({ type: ALL_INSCRIPTIONS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -113,7 +115,7 @@ export function getInscription() {
 export function getComments(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.get(`http://localhost:3001/comment/${id}`);
+      let { data } = await axios.get(`${url}/comment/${id}`);
       if (data) return dispatch({ type: ALL_COMMENTS, payload: data });
       //Necesitamos que si no encuentra ningun comentario que el back regrese un array vacío
       // else return dispatch({type:ALL_COMMENTS, payload:[]})
@@ -126,7 +128,7 @@ export function getComments(id) {
 export function getEvents() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/calendar');
+      let { data } = await axios.get(`${url}/calendar`);
       return dispatch({
         type: ALL_EVENTO,
         payload: data,
@@ -139,7 +141,7 @@ export function getEvents() {
 
 export function getSport() {
   return async function (dispatch) {
-    const { data } = await axios.get('http://localhost:3001/sport');
+    const { data } = await axios.get(`${url}/sport`);
     return dispatch({
       type: GET_SPORT,
       payload: data,
@@ -151,7 +153,7 @@ export function createSport(userId, input) {
   return async function () {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/sport/${userId}`,
+        `${url}/sport/${userId}`,
         input
       );
       return data;
@@ -163,7 +165,7 @@ export function createSport(userId, input) {
 
 export function getTeacher() {
   return async function (dispatch) {
-    const { data } = await axios.get('http://localhost:3001/teacher');
+    const { data } = await axios.get(`${url}/teacher`);
     return dispatch({
       type: GET_TEACHER,
       payload: data,
@@ -173,7 +175,7 @@ export function getTeacher() {
 
 export function getCategory() {
   return async function (dispatch) {
-    const { data } = await axios.get('http://localhost:3001/category');
+    const { data } = await axios.get(`${url}/category`);
     return dispatch({
       type: GET_CATEGORY,
       payload: data,
@@ -183,7 +185,7 @@ export function getCategory() {
 
 export function getCategorySport() {
   return async function (dispatch) {
-      const { data } = await axios.get('http://localhost:3001/categorysport')
+      const { data } = await axios.get(`${url}/categorysport`)
       return dispatch({
           type: GET_CATEGORY_SPORT,
           payload: data,
@@ -195,7 +197,7 @@ export function createCategory(userId, input) {
   return async function () {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/category/${userId}`,
+        `${url}/category/${userId}`,
         input
       );
       return data;
@@ -209,7 +211,7 @@ export function updateCategory(id, input) {
   return async dispatch => {
     try {
       let { data } = await axios.put(
-        `http://localhost:3001/category/${id}`,
+        `${url}/category/${id}`,
         input
       );
       return dispatch({ type: UPDATE_CATEGORY, payload: data });
@@ -222,7 +224,7 @@ export function updateCategory(id, input) {
 export function deleteCategory(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/category/${id}`);
+      let { data } = await axios.delete(`${url}/category/${id}`);
       return dispatch({ type: DELETE_CATEGORY, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -234,7 +236,7 @@ export function deleteCategory(id) {
 export function loginMember(input) {
   return async function () {
     try {
-      const { data } = await axios.post('http://localhost:3001/user', input);
+      const { data } = await axios.post(`${url}/user`, input);
       return data;
     } catch (error) {
       alert(error.response.data);
@@ -247,7 +249,7 @@ export function loginMember(input) {
 export function detailMember(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.get(`http://localhost:3001/user/${id}`);
+      let { data } = await axios.get(`${url}/user/${id}`);
       return dispatch({ type: DETAIL_MEMBER, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -258,7 +260,7 @@ export function detailMember(id) {
 export function detailNews(id) {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/news/${id}`);
+      const { data } = await axios.get(`${url}/news/${id}`);
       dispatch({
         type: DETAIL_NEWS,
         payload: data,
@@ -272,7 +274,7 @@ export function detailNews(id) {
 export function detailEvento(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/calendar/${id}`);
+      const json = await axios.get(`${url}/calendar/${id}`);
       dispatch({
         type: DETAIL_EVENTO,
         payload: json.data,
@@ -286,7 +288,7 @@ export function detailEvento(id) {
 export function detailCategorySport(id) {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/categorysport/${id}`);
+      const { data } = await axios.get(`${url}/categorysport/${id}`);
       dispatch({
         type: DETAIL_CATEGORY_SPORT,
         payload: data,
@@ -300,7 +302,7 @@ export function detailCategorySport(id) {
 export function detailTeacher(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/teacher/${id}`);
+      const json = await axios.get(`${url}/teacher/${id}`);
       dispatch({
         type: DETAIL_TEACHER,
         payload: json.data,
@@ -317,7 +319,7 @@ export function createNews(userId, input) {
   return async function () {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/news/crear/${userId}`,
+        `${url}/news/crear/${userId}`,
         input
       );
       return data;
@@ -331,7 +333,7 @@ export function createInscription(userId, input) {
   return async function () {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/inscription/${userId}`,
+        `${url}/inscription/${userId}`,
         input
       );
       return data;
@@ -344,7 +346,7 @@ export function createInscription(userId, input) {
 export function createActivity(input) {
   return async function () {
     try {
-      const { data } = await axios.post(`http://localhost:3001/categorysport/`, input);
+      const { data } = await axios.post(`${url}/categorysport/`, input);
       return data;
     } catch (error) {
       alert(error.response.data);
@@ -363,7 +365,7 @@ export function createMember(input) {
       }
 
       let { data } = await axios.post(
-        `http://localhost:3001/user`,
+        `${url}/user`,
         input
       );
       //Despachar accion o regresar mensaje?
@@ -382,11 +384,11 @@ export function createComment(newsId, userId, input) {
       console.log(userId);
       console.log(input);
       await axios.post(
-        `http://localhost:3001/comment/comentar/${newsId}/${userId}`,
+        `${url}/comment/comentar/${newsId}/${userId}`,
         input
       );
 
-      // let {data} = await axios.get("http://localhost:3001/user")
+      // let {data} = await axios.get("${url}/user")
 
       // return dispatch({type:ALL_COMMENTS,payload:data});
       return;
@@ -399,7 +401,7 @@ export function createComment(newsId, userId, input) {
 export function createContact(input) {
   return async () => {
     try {
-      let { data } = await axios.post('http://localhost:3001/contact', input);
+      let { data } = await axios.post(`${url}/contact`, input);
       return data;
     } catch (error) {
       alert(error.response.data);
@@ -409,7 +411,7 @@ export function createContact(input) {
 
 export function postEvento(payload) {
   return async function () {
-    const json = await axios.post('http://localhost:3001/calendar', payload);
+    const json = await axios.post(`${url}/calendar`, payload);
     return json;
   };
 }
@@ -418,7 +420,7 @@ export function postEvento(payload) {
 export function updateNews(id, input) {
   return async dispatch => {
     try {
-      let { data } = await axios.put(`http://localhost:3001/news/${id}`, input);
+      let { data } = await axios.put(`${url}/news/${id}`, input);
       return dispatch({ type: UPDATE_NEWS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -430,7 +432,7 @@ export function updateComment(id, input) {
   return async dispatch => {
     try {
       let { data } = await axios.put(
-        `http://localhost:3001/comment/${id}`,
+        `${url}/comment/${id}`,
         input
       );
       return dispatch({ type: UPDATE_COMMENT, payload: data });
@@ -443,7 +445,7 @@ export function updateComment(id, input) {
 export function updateMember(id, input) {
   return async dispatch => {
     try {
-      let { data } = await axios.put(`http://localhost:3001/user/${id}`, input);
+      let { data } = await axios.put(`${url}/user/${id}`, input);
       return dispatch({ type: UPDATE_MEMBER, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -455,7 +457,7 @@ export function updateMember(id, input) {
 export function deleteNews(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/news/${id}`);
+      let { data } = await axios.delete(`${url}/news/${id}`);
       return dispatch({ type: DELETE_NEWS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -466,7 +468,7 @@ export function deleteNews(id) {
 export function deleteTeacher(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/news/${id}`);
+      let { data } = await axios.delete(`${url}/news/${id}`);
       return dispatch({ type: DELETE_TEACHER, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -477,7 +479,7 @@ export function deleteTeacher(id) {
 export function deleteComment(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/comment/${id}`);
+      let { data } = await axios.delete(`${url}/comment/${id}`);
       return dispatch({ type: DELETE_COMMENT, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -488,7 +490,7 @@ export function deleteComment(id) {
 export function deleteMember(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/user/${id}`);
+      let { data } = await axios.delete(`${url}/user/${id}`);
       return dispatch({ type: DELETE_MEMBER, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -498,7 +500,7 @@ export function deleteMember(id) {
 export function deleteContact(id) {
   return async dispatch => {
     try {
-      let { data } = await axios.delete(`http://localhost:3001/contact/${id}`);
+      let { data } = await axios.delete(`${url}/contact/${id}`);
       return dispatch({ type: DELETE_CONTACT, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -511,8 +513,8 @@ export function GetProfile(id) {
   return async function (dispatch) {
     try {
       const { data } = await axios.get(
-        'http://localhost:3001/profile/:id'
-      ); /*"http://localhost:3001/profile/" + id lo puse asi para probar como se ve, para que funcione poner el codigo comentado*/
+        `${url}/profile/${id}`
+      ); /*"${url}/profile/" + id lo puse asi para probar como se ve, para que funcione poner el codigo comentado*/
       return dispatch({
         type: 'GET_PROFILE',
         payload: data,
@@ -535,7 +537,7 @@ export function search(name) {
 export function getPay() {
   return async dispatch => {
     try {
-      let { data } = await axios.get('http://localhost:3001/pay');
+      let { data } = await axios.get(`${url}/pay`);
       return dispatch({ type: ALL_PAYS, payload: data });
     } catch (error) {
       alert(error.response.data);
@@ -547,13 +549,13 @@ export function getPay() {
 
 export function filterNews(title) {
   return async dispatch => {
-    let { data } = await axios.get(`http://localhost:3001/news?title=${title}`);
+    let { data } = await axios.get(`${url}/news?title=${title}`);
     return dispatch({ type: SEARCH_SEARCH, payload: data });
   };
 }
 export function filterNewsByName(name) {
   return async dispatch => {
-    let { data } = await axios.get(`http://localhost:3001/news?name=${name}`);
+    let { data } = await axios.get(`${url}/news?name=${name}`);
     return dispatch({ type: SEARCH_SEARCH, payload: data });
   };
 }
@@ -572,7 +574,7 @@ export const clearPage = () => {
 export function jasonWebToken(input) {
   return async dispatch => {
     try {
-      let { data } = await axios.post('http://localhost:3001/login', input);
+      let { data } = await axios.post(`${url}/login`, input);
       dispatch({ type: JWT, payload: data });
       // localStorage.setItem(data);
 
@@ -596,7 +598,7 @@ export function clearMemberDetail() {
 export function sendContact(input) {
   return async dispatch => {
     try {
-      const {data} = await axios.post("http://localhost:3001/Contact", input)
+      const {data} = await axios.post(`${url}/Contact`, input)
       console.log(data)
       alert("Se ha enviado los datos")
       return data
