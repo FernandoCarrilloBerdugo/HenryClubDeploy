@@ -31,9 +31,9 @@ export default function PAdmin() {
             {/* <li>
               <NavLink to="/admin/home">Home</NavLink>
             </li> */}
-            {/* <li>
+            <li>
               <NavLink to="/admin/newactivity">Crea Actividad</NavLink>
-            </li> */}
+            </li>
             <li>
               <NavLink to="/admin/editnews">EDITAR NOTICIAS</NavLink>
             </li>

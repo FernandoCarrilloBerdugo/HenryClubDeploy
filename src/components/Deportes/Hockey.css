@@ -1,0 +1,9 @@
+.encabezadoH{
+    background-image: url('https://www.sterosport.co.uk/wp-content/uploads/2022/02/Hockey-banner-dark.jpg');
+    height: 150px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}

@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategory, getSport, getTeacher, loginMember } from "../../redux/Actions/Action";
+import { getCategory, getSport, getTeacher, createActivity } from "../../redux/Actions/Action";
 import validate from "../Form Create Activities/validate"
 import s from './NewActivity.module.css';
 
@@ -23,13 +22,14 @@ export default function NewActivity() {
 
     });
 
-  const [errors, setErrors] = useState({
-  })
+  // const [errors, setErrors] = useState({
+  // })
 
   const handleSelect = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
-    console.log(e.target.name)
+    // console.log(e.target.value)
+    // console.log(e.target.name)
+    console.log(e.target.id)
     setInput({
       ...input,
       [e.target.name]: e.target.value
@@ -42,10 +42,10 @@ export default function NewActivity() {
       ...input,
       [e.target.name]: e.target.value
     });
-    setErrors(validate({
-      ...input,
-      [e.target.name]: e.target.value
-    }));
+    // setErrors(validate({
+    //   ...input,
+    //   [e.target.name]: e.target.value
+    // }));
   };
   console.log(input)
 console.log(state)
@@ -54,24 +54,24 @@ console.log(state)
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (input.start !== "" && input.days !== "" && input.finish !== "" &&
-      input.fee !== "" && input.teacherId !== "" && input.sportId !== "" && 
+    if (input.start !== "" && input.day !== "" && input.finish !== "" &&
+      input.fee !== "" && input.userId !== "" && input.sportId !== "" && 
       input.description !== "" && input.categoryId !== "");
-    else if (
-      !Object.keys(errors).length) {
-      setLoading(true);
-      dispatch(loginMember())
+    // else if (
+    //   !Object.keys(errors).length) 
+      {setLoading(true);
+      dispatch(createActivity(input))
       setInput({
-        days: "",
+        day: "",
         start: "",
         finish: "",
+        description: "",
         fee: "",
-        teacherId: "",
         sportId: "",
         categoryId: "",
-        description: "",
+        userId: "",
       });
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -82,14 +82,14 @@ console.log(state)
         <form className={s.Form} onSubmit={onSubmit}>
           <input className={s.input}
             onChange={HandleChange}
-            value={input.days}
-            name="days"
-            id="days"
-            type="days"
-            placeholder="Days of the activity"
+            value={input.day}
+            name="day"
+            id="day"
+            type="day"
+            placeholder="day of the activity"
             autoComplete="off"
           />
-          {errors.days && <p className={s.errors}>{errors.days}</p>}
+          {/* {errors.day && <p className={s.errors}>{errors.day}</p>} */}
 
           <input className={s.input}
             onChange={HandleChange}
@@ -100,7 +100,7 @@ console.log(state)
             placeholder="Start activity"
             autoComplete="off"
           />
-          {errors.start && <p className={s.errors}>{errors.start}</p>}
+          {/* {errors.start && <p className={s.errors}>{errors.start}</p>} */}
 
           <input className={s.input}
             onChange={HandleChange}
@@ -111,7 +111,7 @@ console.log(state)
             placeholder="Finish activity"
             autoComplete="off"
           />
-          {errors.finish && <p className={s.errors}>{errors.finish}</p>}
+          {/* {errors.finish && <p className={s.errors}>{errors.finish}</p>} */}
 
           <input className={s.input}
             onChange={HandleChange}
@@ -122,32 +122,32 @@ console.log(state)
             placeholder="pesos fee"
             autoComplete="off"
           />
-          {errors.fee && <p className={s.errors}>{errors.fee}</p>}
+          {/* {errors.fee && <p className={s.errors}>{errors.fee}</p>} */}
 
           <div>
-            <select className={s.select} onChange={handleSelect} name="teacher">
-              <option value=""> Select Instructor</option>
-             {state.teacher&&state.teacher.map((teacher) => (
-                  <option key={teacher.id} value={teacher.id}>{teacher.name}</option>
+            <select className={s.select} onChange={handleSelect} name="userId">
+              <option value=""> Seleccionar Instructor</option>
+             {state.teacher&&state.teacher.map((userId) => (
+                  <option key={userId.id} value={userId.id}>{userId.name}</option>
                 ))} 
             </select>
           </div>
 
           <div>
-            <select className={s.select} onChange={handleSelect} name="sport">
-              <option value=""> Select Deporte</option>
+            <select className={s.select} onChange={handleSelect} name="sportId">
+              <option value=""> Seleccionar Deporte</option>
               {state.sport &&
-                state.sport.map((sport) => (
-                  <option key={sport.id} value={sport.id}>
-                    {sport.name}
+                state.sport.map((sportId) => (
+                  <option key={sportId.id} value={sportId.id}>
+                    {sportId.name}
                   </option>
                 ))}
             </select>
           </div>
 
           <div>
-            <select className={s.select} onChange={handleSelect} name="category">
-              <option value=""> Select Category</option>
+            <select className={s.select} onChange={handleSelect} name="categoryId">
+              <option value=""> Seleccionar Category</option>
               {state.category &&
                 state.category.map((category) => (
                   <option key={category.id} value={category.id}>
@@ -165,9 +165,9 @@ console.log(state)
             placeholder=" Description for Activity"
             autoComplete="off"
           />
-          {errors.description && <p className={s.errors}>{errors.description}</p>}
+          {/* {errors.description && <p className={s.errors}>{errors.description}</p>} */}
 
-          <button className={s.submit} type="submit">{loading ? "Cargando..." : "Crear"}</button>
+          <button className={s.submit} type="submit"  >{loading ? "Cargando..." : "Crear"}</button>
         </form>
       </div>
     </div>

@@ -74,3 +74,42 @@ button:after {
   text-transform: uppercase;
   text-shadow: 5px 10px 5px gray;
 }
+
+.imagen{
+  height: 100%;
+  width: 200px;
+}
+
+.deportes{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-left: 4%;
+  border-right: 4%;
+}
+
+.deporte{
+  width: 30%;
+  height: 600px;
+  background: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-left: 4%;
+  border-right: 4%;
+  display: grid;
+  grid-area: 2/4/5/6;
+}
+
+.futbol {
+  display: flex;
+  flex-direction: column;
+}
+
+.hockey{
+  display: flex;
+  flex-direction: column;
+}
+.natacion{
+  display: flex;
+  flex-direction: column;
+}

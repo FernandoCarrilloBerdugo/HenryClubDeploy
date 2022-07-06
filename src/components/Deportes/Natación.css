@@ -1,0 +1,9 @@
+.encabezadoN{
+    background-image: url('https://kiroldegi.askartzaclaret.org/wp-content/uploads/2015/05/banner-escuela-de-natacion.jpg');
+    height: 150px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}

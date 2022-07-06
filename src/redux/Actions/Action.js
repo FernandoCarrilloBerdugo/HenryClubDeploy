@@ -33,6 +33,8 @@ import {
   DELETE_CATEGORY,
   ALL_ROLES,
   ALL_INSCRIPTIONS,
+  DETAIL_CATEGORY_SPORT,
+  GET_CATEGORY_SPORT,
   JWT,
   CLEAR_MEMBER_DETAIL,
 } from './DataTypes';
@@ -179,6 +181,16 @@ export function getCategory() {
   };
 }
 
+export function getCategorySport() {
+  return async function (dispatch) {
+      const { data } = await axios.get('http://localhost:3001/categorysport')
+      return dispatch({
+          type: GET_CATEGORY_SPORT,
+          payload: data,
+      });
+  };
+}
+
 export function createCategory(userId, input) {
   return async function () {
     try {
@@ -271,6 +283,20 @@ export function detailEvento(id) {
   };
 }
 
+export function detailCategorySport(id) {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`http://localhost:3001/categorysport/${id}`);
+      dispatch({
+        type: DETAIL_CATEGORY_SPORT,
+        payload: data,
+      });
+    } catch (error) {
+      alert(error.response.data);
+    }
+  };
+}
+
 export function detailTeacher(id) {
   return async function (dispatch) {
     try {
@@ -318,7 +344,7 @@ export function createInscription(userId, input) {
 export function createActivity(input) {
   return async function () {
     try {
-      const { data } = await axios.post('ruta crear actividad', input);
+      const { data } = await axios.post(`http://localhost:3001/categorysport/`, input);
       return data;
     } catch (error) {
       alert(error.response.data);

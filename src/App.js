@@ -15,6 +15,9 @@ import Contact from './components/Contact/contact.jsx';
 import Activity from './components/Form Create Activities/NewActivity.jsx';
 import MyCalendar from './components/Calendario/Calendario';
 import Profile from './components/Profile/Profile';
+import Futbol from './components/Deportes/Futbol'
+import Hockey from './components/Deportes/Hockey'
+import Natación from './components/Deportes/Natación'
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
         <Route exact path="/calendario" component={MyCalendar} />
         {/* <Route exact path="*" component={Landing} /> */}
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/futbol" component={Futbol} />
+        <Route exact path="/hockey" component={Hockey} />
+        <Route exact path="/natacion" component={Natación} />
       </Switch>
     </div>
   );

@@ -32,6 +32,8 @@ import {
 	ALL_INSCRIPTIONS,
 	JWT,
 	CLEAR_MEMBER_DETAIL,
+	DETAIL_CATEGORY_SPORT,
+	GET_CATEGORY_SPORT,
 } from "../Actions/DataTypes";
 
 const initialState = {
@@ -52,6 +54,8 @@ const initialState = {
 	roles: [],
 	inscriptions: [],
 	jwt: [],
+	categorySportDetail: [],
+	categorySport:[],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -227,6 +231,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
 				...state,
 				inscriptions: payload,
 			};
+			
+			case DETAIL_CATEGORY_SPORT:
+				return{
+					...state,
+					categorySportDetail:payload
+				}
+
+			case GET_CATEGORY_SPORT:
+				return{
+					...state,
+					categorySport:payload
+				}
 
 		case CLEAR_MEMBER_DETAIL:
 			return {

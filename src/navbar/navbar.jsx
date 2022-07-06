@@ -85,7 +85,7 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/registrate">
+                  <Link to="/register">
                     <span>Registrate</span>
                   </Link>
                 </li>
