@@ -1,8 +1,5 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-
-const url = "https://backhenryclub.herokuapp.com"
-
 import {
   ALL_MEMBERS,
   ALL_IMAGES,
@@ -40,6 +37,8 @@ import {
   JWT,
   CLEAR_MEMBER_DETAIL,
 } from './DataTypes';
+
+const url = "https://backhenryclub.herokuapp.com"
 
 //Get
 
