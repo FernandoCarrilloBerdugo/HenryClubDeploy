@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import style from './Register.module.css';
 import { useHistory } from 'react-router-dom';
 import logoHenry from '../../utils/fotos/LOGODIA.png';
+import swal from 'sweetalert';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -73,7 +74,11 @@ export default function Register() {
       password &&
       passwordTwo
     ) {
-      alert('¡username Creado!');
+      swal({
+        title: '¡Usuario creado!',
+        icon: 'success',
+        button: 'Ok.',
+      });
       setLoading(true);
       console.log('hola');
       dispatch(createMember(inputs));
@@ -85,13 +90,16 @@ export default function Register() {
   return (
     <div className={style.container}>
       <img src={logoHenry} width="150px" height="150px" alt="" />
+      <Link to={'/home'}>
+        <button>Volver</button>
+      </Link>
       <div className={style.formContainer}>
         <form className={style.form} onSubmit={onSubmit}>
           <div className={style.inputContainer}>
             <div className={style.column1}>
               <div>
                 {error.name && <p className={style.error}>{error.name}</p>}
-                <label className={style.tag}>name</label>
+                <label className={style.tag}>Nombre</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -107,7 +115,7 @@ export default function Register() {
                 {error.surname && (
                   <p className={style.error}>{error.surname}</p>
                 )}
-                <label className={style.tag}>surname</label>
+                <label className={style.tag}>Apellido</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -121,7 +129,7 @@ export default function Register() {
               </div>
               <div>
                 {error.phone && <p className={style.error}>{error.phone}</p>}
-                <label className={style.tag}>Número de phone</label>
+                <label className={style.tag}>Número de teléfono</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -135,7 +143,7 @@ export default function Register() {
               </div>
               <div>
                 {error.email && <p className={style.error}>{error.email}</p>}
-                <label className={style.tag}>email</label>
+                <label className={style.tag}>Email/Correo</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -177,7 +185,7 @@ export default function Register() {
               </div>
               <div>
                 {error.age && <p className={style.error}>{error.age}</p>}
-                <label className={style.tag}>age</label>
+                <label className={style.tag}>Edad</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -193,7 +201,7 @@ export default function Register() {
                 {error.username && (
                   <p className={style.error}>{error.username}</p>
                 )}
-                <label className={style.tag}>name de username</label>
+                <label className={style.tag}>Nombre de usuario</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -210,7 +218,7 @@ export default function Register() {
                 {error.password && (
                   <p className={style.error}>{error.password}</p>
                 )}
-                <label className={style.tag}>password</label>
+                <label className={style.tag}>Contraseña</label>
                 <input
                   className={style.input}
                   onChange={HandleChange}
@@ -228,7 +236,7 @@ export default function Register() {
                 {error.passwordTwo && (
                   <p className={style.error}>{error.passwordTwo}</p>
                 )}
-                <label className={style.tag}>Repite tu password</label>
+                <label className={style.tag}>Repite tu contraseña</label>
                 <input
                   className={style.input}
                   onChange={handlePasswordEqual}

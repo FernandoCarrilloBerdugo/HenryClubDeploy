@@ -1,0 +1,40 @@
+.galeria {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  top: -10vh;
+  left: 0%;
+  width: 500px;
+}
+.menu ul {
+  display: flex;
+}
+.menu li {
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+.menu li:hover {
+  color: #e78345;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+.menu li:focus {
+  color: #e78345;
+}
+.menu a {
+  color: black;
+}
+.menu a:hover {
+  color: #e78345;
+  transform: scale(1.2);
+}

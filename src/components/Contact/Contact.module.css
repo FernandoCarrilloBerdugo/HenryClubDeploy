@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 100%;
 } */
+
 .contenedorGeneral .titulo {
   font-size: 40px;
   text-align: center;
@@ -44,4 +45,8 @@
 }
 .contenedorGeneral .form textarea {
   resize: none;
+}
+.error{
+  text-decoration: red;
+  color: red;
 }

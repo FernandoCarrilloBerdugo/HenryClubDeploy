@@ -22,14 +22,14 @@ export default function NewActivity() {
 
     });
 
-  // const [errors, setErrors] = useState({
-  // })
+ const [errors, setErrors] = useState({
+ })
 
   const handleSelect = (e) => {
     e.preventDefault()
     // console.log(e.target.value)
     // console.log(e.target.name)
-    console.log(e.target.id)
+  //  console.log(e.target.id)
     setInput({
       ...input,
       [e.target.name]: e.target.value
@@ -42,13 +42,13 @@ export default function NewActivity() {
       ...input,
       [e.target.name]: e.target.value
     });
-    // setErrors(validate({
-    //   ...input,
-    //   [e.target.name]: e.target.value
-    // }));
+    setErrors(validate({
+      ...input,
+      [e.target.name]: e.target.value
+    }));
   };
-  console.log(input)
-console.log(state)
+//   console.log(input)
+// console.log(state)
 
 
 
@@ -57,9 +57,9 @@ console.log(state)
     if (input.start !== "" && input.day !== "" && input.finish !== "" &&
       input.fee !== "" && input.userId !== "" && input.sportId !== "" && 
       input.description !== "" && input.categoryId !== "");
-    // else if (
-    //   !Object.keys(errors).length) 
-      {setLoading(true);
+   else if (
+     !Object.keys(errors).length) 
+    setLoading(true);
       dispatch(createActivity(input))
       setInput({
         day: "",
@@ -71,8 +71,8 @@ console.log(state)
         categoryId: "",
         userId: "",
       });
-      setLoading(true);
-    }
+      setLoading(false);
+   
   };
 
   return (
@@ -80,6 +80,8 @@ console.log(state)
       <div className={s.wrapper}>
         <div className={s.loginTitle2}> <h3 >Create New Activity</h3> </div>
         <form className={s.Form} onSubmit={onSubmit}>
+          <> 
+        {input.day &&input.day.length<3?<small>dias de la actividad</small>: null}
           <input className={s.input}
             onChange={HandleChange}
             value={input.day}
@@ -89,42 +91,53 @@ console.log(state)
             placeholder="day of the activity"
             autoComplete="off"
           />
-          {/* {errors.day && <p className={s.errors}>{errors.day}</p>} */}
-
+          {errors.day && <p className={s.errors}>{errors.day}</p>}
+</>
+<>
+{!input.start? <small>horarios entre 9hs - 20hs</small>: null}
           <input className={s.input}
             onChange={HandleChange}
             value={input.start}
             name="start"
             id="start"
             type="time"
+            min="09:00"
+            max="20:00"
             placeholder="Start activity"
             autoComplete="off"
           />
-          {/* {errors.start && <p className={s.errors}>{errors.start}</p>} */}
-
+          {errors.start && <p className={s.errors}>{errors.start}</p>}
+ </>
+ <> 
+ {!input.finish? <small>horarios entre 9hs - 20hs</small>: null}
           <input className={s.input}
             onChange={HandleChange}
             value={input.finish}
             name="finish"
             id="finish"
             type="time"
+            min="09:00"
+            max="20:00"
             placeholder="Finish activity"
             autoComplete="off"
           />
-          {/* {errors.finish && <p className={s.errors}>{errors.finish}</p>} */}
-
+          {errors.finish && <p className={s.errors}>{errors.finish}</p>}
+</>
+<> 
+{input.fee<100? <small>mas de 100 pesos argentinos sin puntos</small>: null}
           <input className={s.input}
             onChange={HandleChange}
             value={input.fee}
             name="fee"
             id="fee"
-            type="fee"
+            type="number"  min="100" max="100000"
             placeholder="pesos fee"
             autoComplete="off"
           />
-          {/* {errors.fee && <p className={s.errors}>{errors.fee}</p>} */}
-
+          {errors.fee && <p className={s.errors}>{errors.fee}</p>}
+</>
           <div>
+          {!input.userId? <small>Instructor</small>: null}
             <select className={s.select} onChange={handleSelect} name="userId">
               <option value=""> Seleccionar Instructor</option>
              {state.teacher&&state.teacher.map((userId) => (
@@ -134,6 +147,7 @@ console.log(state)
           </div>
 
           <div>
+          {!input.sportId? <small>Deporte</small>: null}    
             <select className={s.select} onChange={handleSelect} name="sportId">
               <option value=""> Seleccionar Deporte</option>
               {state.sport &&
@@ -146,6 +160,7 @@ console.log(state)
           </div>
 
           <div>
+          {!input.categoryId? <small>Categoria</small>: null}
             <select className={s.select} onChange={handleSelect} name="categoryId">
               <option value=""> Seleccionar Category</option>
               {state.category &&
@@ -156,6 +171,8 @@ console.log(state)
                 ))}
             </select>
           </div>
+          <>
+          {input.description &&input.description.length<10? <small>Descripcion</small>: null}
           <textarea className={s.input}
             onChange={HandleChange}
             value={input.description}
@@ -165,8 +182,8 @@ console.log(state)
             placeholder=" Description for Activity"
             autoComplete="off"
           />
-          {/* {errors.description && <p className={s.errors}>{errors.description}</p>} */}
-
+          {errors.description && <p className={s.errors}>{errors.description}</p>}
+ </>
           <button className={s.submit} type="submit"  >{loading ? "Cargando..." : "Crear"}</button>
         </form>
       </div>

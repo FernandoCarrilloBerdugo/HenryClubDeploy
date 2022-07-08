@@ -13,6 +13,8 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import jwt_decode from 'jwt-decode';
+import swal from 'sweetalert';
+
 // aca
 
 export default function Login() {
@@ -50,6 +52,15 @@ export default function Login() {
         }
       });
     }
+  };
+
+  const alertaLogin = () => {
+    swal({
+      title: '¡Sesión Iniciada!',
+      icon: 'success',
+      button: 'Ok.',
+      timer: '2000',
+    });
   };
 
   return (
@@ -93,7 +104,11 @@ export default function Login() {
 
           {/* HACER RENDERIZADO CONDICIONAL PARA USER O ADMIN */}
 
-          <button className={s.submit} type="submit">
+          <button
+            onClick={() => alertaLogin()}
+            className={s.submit}
+            type="submit"
+          >
             Iniciar Sesión
           </button>
 

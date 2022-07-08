@@ -15,9 +15,11 @@ import Contact from './components/Contact/contact.jsx';
 import Activity from './components/Form Create Activities/NewActivity.jsx';
 import MyCalendar from './components/Calendario/Calendario';
 import Profile from './components/Profile/Profile';
-import Futbol from './components/Deportes/Futbol'
-import Hockey from './components/Deportes/Hockey'
-import Natación from './components/Deportes/Natación'
+import Futbol from './components/Deportes/Futbol';
+import Hockey from './components/Deportes/Hockey';
+import Natación from './components/Deportes/Natación';
+import SeccionNews from './components/SeccionNews/SeccionNews';
+import Fotos from './components/SeccionFotos/Fotos';
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
         <Route exact path="/reserve" component={Reserve} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/galery" component={GaleriaImg} />
+        <Route exact path="/galery" component={Fotos} />
         <Route path="/admin" component={Admin} />
         <Route path="/user/:id" component={User} />
         <Route exact path="/news" component={News} />
@@ -41,6 +43,7 @@ function App() {
         <Route exact path="/futbol" component={Futbol} />
         <Route exact path="/hockey" component={Hockey} />
         <Route exact path="/natacion" component={Natación} />
+        <Route exact path="/seccionNoticias" component={SeccionNews} />
       </Switch>
     </div>
   );

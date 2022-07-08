@@ -9,6 +9,7 @@ import {
 } from '../../redux/Actions/Action';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
+import swal from 'sweetalert';
 
 export default function NewsDetail() {
   const { id } = useParams();
@@ -61,8 +62,18 @@ export default function NewsDetail() {
       });
       alert('Comentario Enviado');
       dispatch(detailNews(id));
+      // swal({
+      //   title: '¡Comentario enviado!',
+      //   icon: 'success',
+      //   button: 'Ok.',
+      // });
     } else {
-      alert('Todos los campos deben llenares para la enviar su comentario.');
+      swal({
+        title: '¡Ups!',
+        text: 'Todos los campos deben llenares para la enviar su comentario.',
+        icon: 'error',
+        button: 'Ok.',
+      });
     }
   }
 

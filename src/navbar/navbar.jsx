@@ -8,30 +8,54 @@ import './NavBar.css';
 import { useState } from 'preact/hooks';
 import { loginMember } from '../redux/Actions/Action';
 import { useSelector } from 'react-redux';
+import swal from 'sweetalert';
 
 export default function Navbar() {
-  const logOut = e => {
-    // e.preventDefault();
+  const alertaLogOut = () => {
     window.localStorage.removeItem('data');
     window.localStorage.removeItem('token');
-    alert('Adios!');
+    swal({
+      title: '¡Sesión Cerrada!',
+      text: '¡Adios!',
+
+      button: 'Ok.',
+      timer: '2000',
+    });
   };
 
   return (
-    <div>
+    <div className="contenedor">
       <div className="header">
         <Link to="/home">
-          {' '}
           <img className="logo" src={logoHenry} alt="logo" />{' '}
-        </Link>{' '}
-        {/* logo */}
-        <h1 className="titulo">Club Henry</h1> <br /> {/* titulo */}
-        <div className="searchbar">
+        </Link>
+        <h1 className="titulo">Club Henry</h1> <br />
+        {/* <div className="searchbar">
           <h2>
-            {' '}
-            {/* searchbar */}
             <Search />
           </h2>
+        </div> */}{' '}
+        <div className="menu">
+          <ul>
+            <Link to={'/home'}>
+              <li>Home</li>
+            </Link>
+            <li>
+              <a href="#deportes">Deportes/Actividades</a>
+            </li>
+            <Link to={'/seccionNoticias'}>
+              <li>Noticias</li>
+            </Link>
+            <Link to={'/galery'}>
+              <li>Galería</li>
+            </Link>
+            <li>
+              <a href="">Calendario</a>
+            </li>
+            <Link to={'/contact-us'}>
+              <li>Contacto</li>
+            </Link>
+          </ul>
         </div>
         {/* SECCION DE USUARIOS */}
         {localStorage.getItem('token') ? (
@@ -63,7 +87,7 @@ export default function Navbar() {
 
                 <li>
                   <Link to="/login">
-                    <p onClick={logOut}>CERRAR SESIÓN</p>
+                    <p onClick={alertaLogOut}>CERRAR SESIÓN</p>
                   </Link>
                 </li>
               </ul>
