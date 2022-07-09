@@ -6,6 +6,7 @@ import S from '../SeccionNews/SeccionNews.module.css';
 import NavBar from '../../navbar/navbar';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/SearchBar';
+import Footer from '../footer/footer.jsx';
 
 export default function SeccionNews() {
   const news = useSelector(state => state.news);
@@ -34,7 +35,7 @@ export default function SeccionNews() {
           );
         })}
       </div>
-      {/* ACA VA EL CONTENIDO GENERAL DE LA PAGINA */}
+      <Footer />
     </div>
   );
 }

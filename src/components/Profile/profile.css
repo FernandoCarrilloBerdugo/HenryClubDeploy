@@ -9,18 +9,29 @@
 }
 .tituloPerfil {
   font-size: 40px;
-  text-shadow: 3px 3px 3px grey;
+  text-shadow: 5px 5px 5px grey;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 60px;
+  text-transform: uppercase;
 }
 .contenido img {
   width: 250px;
   height: 250px;
 
   position: absolute;
-  top: 25vh;
+  top: 30vh;
   left: 2vw;
   border-radius: 50%;
 }
-
+.botonesPerfil {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60vh;
+  left: 5vw;
+}
 .datosDeUsuario {
   display: flex;
   justify-content: space-around;

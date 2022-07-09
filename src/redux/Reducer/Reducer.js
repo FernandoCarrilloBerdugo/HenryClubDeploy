@@ -56,6 +56,7 @@ const initialState = {
 	jwt: [],
 	categorySportDetail: [],
 	categorySport:[],
+	eventoDetail:[],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {

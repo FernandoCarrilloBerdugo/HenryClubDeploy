@@ -7,6 +7,7 @@ import style from './Register.module.css';
 import { useHistory } from 'react-router-dom';
 import logoHenry from '../../utils/fotos/LOGODIA.png';
 import swal from 'sweetalert';
+import { boolean } from 'yup';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -23,7 +24,20 @@ export default function Register() {
     username: '',
     password: '',
     passwordTwo: '',
+    tutorName: '',
+    tutorPhone: '',
+    tutorEmail: '',
+    isOlder: '',
   });
+
+  // function isOlder(){
+  //   const input = e.target.value
+  //   if (input.edad >= 18) {
+  //     input.isOlder = true;
+  //   } else {
+  //     input.isOlder = false;
+  //   }
+  // }
 
   //Para renderizar mensajes de error
   const [error, setError] = useState({});
@@ -40,6 +54,10 @@ export default function Register() {
     username,
     password,
     passwordTwo,
+    tutorName,
+    tutorPhone,
+    tutorEmail,
+    isOlder,
   } = inputs;
 
   const HandleChange = e => {
@@ -107,7 +125,7 @@ export default function Register() {
                   name="name"
                   id="name"
                   type="text"
-                  placeholder="name..."
+                  placeholder="Nombre..."
                   autoComplete="off"
                 />
               </div>
@@ -123,7 +141,7 @@ export default function Register() {
                   name="surname"
                   id="surname"
                   type="text"
-                  placeholder="surname..."
+                  placeholder="Apellido..."
                   autoComplete="off"
                 />
               </div>
@@ -151,7 +169,7 @@ export default function Register() {
                   name="email"
                   id="email"
                   type="email"
-                  placeholder="email..."
+                  placeholder="Email..."
                   autoComplete="off"
                 />
               </div>
@@ -164,7 +182,7 @@ export default function Register() {
                 name="address"
                 id="address"
                 value={address}
-                placeholder="Escribe tu dirección"
+                placeholder="Escribe tu dirección..."
               />
             </div>
 
@@ -193,10 +211,59 @@ export default function Register() {
                   name="age"
                   id="age"
                   type="number"
-                  placeholder="age"
+                  placeholder="Edad"
                   autoComplete="off"
                 />
+                {age < 18 ? (
+                  <div className={style.datosTutor}>
+                    <h2>Datos de tutor: </h2>
+                    <div>
+                      <label className={style.tag}>Nombre del tutor: </label>
+                      <input
+                        className={style.input}
+                        onChange={HandleChange}
+                        value={tutorName}
+                        type="text"
+                        name="tutorName"
+                        id="nameTutor"
+                        placeholder="Nombre del tutor."
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div>
+                      <label className={style.tag}>Teléfono del tutor: </label>
+                      <input
+                        className={style.input}
+                        onChange={HandleChange}
+                        value={tutorPhone}
+                        type="string"
+                        name="tutorPhone"
+                        id="telTutor"
+                        placeholder="Teléfono del tutor."
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div>
+                      <label className={style.tag}>Email del tutor: </label>
+                      <input
+                        className={style.input}
+                        onChange={HandleChange}
+                        value={tutorEmail}
+                        type="text"
+                        name="tutorEmail"
+                        id="emailTutor"
+                        placeholder="Email del tutor."
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
+
               <div>
                 {error.username && (
                   <p className={style.error}>{error.username}</p>
@@ -209,7 +276,7 @@ export default function Register() {
                   name="username"
                   id="username"
                   type="string"
-                  placeholder="username..."
+                  placeholder="Nombre de usuario..."
                   autoComplete="off"
                 />
               </div>
@@ -226,7 +293,7 @@ export default function Register() {
                   name="password"
                   id="password"
                   type="password"
-                  placeholder="password..."
+                  placeholder="Contraseña..."
                   autoComplete="off"
                 />
               </div>
@@ -244,7 +311,7 @@ export default function Register() {
                   name="passwordTwo"
                   id="passwordTwo"
                   type="password"
-                  placeholder="Repite tu password..."
+                  placeholder="Repite tu contraseña..."
                   autoComplete="off"
                 />
               </div>

@@ -5,34 +5,31 @@ import S from '../../components/Contact/Contact.module.css';
 import NavBar from '../../navbar/navbar';
 import { useDispatch } from 'react-redux';
 import { sendContact } from '../../redux/Actions/Action';
-import validations from "./validate"
+import validations from './validate';
 
 export default function Contact() {
   const dispatch = useDispatch();
 
-  const [error, setError] = useState({})
-  const [input, setInput] = useState({})
+  const [error, setError] = useState({});
+  const [input, setInput] = useState({});
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setInput({
       ...input,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-    setError(validations({
-      ...input,
-       [e.target.name]: e.target.value
-     }));
-  }
+    // setError(
+    //   validations({
+    //     ...input,
+    //     [e.target.name]: e.target.value,
+    //   })
+    // );
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (input.surname !== "" && input.name !== "" && input.email !== "" &&
-    input.phone!== "" && input.message !== "" );
-  else if (!Object.keys(error).length) 
-   {dispatch(sendContact(input))} 
-   alert("revisa los errores e intentalo de nuevo")
-  }
-
+  const handleSubmit = e => {
+    e.preventDefault();
+      dispatch(sendContact(input));  
+  };
 
   return (
     <div className={S.contenedorGeneral}>
@@ -40,7 +37,7 @@ export default function Contact() {
 
       <div className={S.titulo}>
         <h2>Club Henry</h2>
-        <h4>Contactanos</h4>
+        <h4 className={S.contactanos}>Contactanos</h4>
       </div>
       <div className={S.infoDatos}>
         <ul>
@@ -50,19 +47,18 @@ export default function Contact() {
         </ul>
       </div>
 
-
-      <form onSubmit={handleSubmit} className={S.form} >
-        <label htmlFor="">Nombre: </label> 
-        <input onChange={handleChange} type="text" name='name' />
-        {error.name && (<span className={S.error}>{error.name}</span>) }
+      <form onSubmit={handleSubmit} className={S.form}>
+        <label htmlFor="">Nombre: </label>
+        <input onChange={handleChange} type="text" name="name" />
+        {error.name && <span className={S.error}>{error.name}</span>}
 
         <label htmlFor="">Apellido: </label>
         <input onChange={handleChange} type="text" name="surname" id="" />
-        {error.surname && (<span className={S.error}>{error.surname}</span>) }
+        {error.surname && <span className={S.error}>{error.surname}</span>}
 
         <label htmlFor="">Email: </label>
         <input onChange={handleChange} type="email" name="email" id="" />
-        {error.email && (<span className={S.error}>{error.email}</span>) }
+        {error.email && <span className={S.error}>{error.email}</span>}
 
         <label htmlFor="">Teléfono de contacto: </label>
         <input
@@ -70,9 +66,9 @@ export default function Contact() {
           type="tel"
           id="phone"
           name="phone"
-         required
+          required
         ></input>
-          {error.phone && (<span className={S.error}>{error.phone}</span>) }
+        {error.phone && <span className={S.error}>{error.phone}</span>}
         <label htmlFor="">Mensaje: </label>
         <textarea
           name="message"
@@ -82,18 +78,18 @@ export default function Contact() {
           onChange={handleChange}
           placeholder="Escribe tu mensaje..."
         ></textarea>
-        {error.message && (<span className={S.error}>{error.message}</span>) }
+        {error.message && <span className={S.error}>{error.message}</span>}
         <div>
           <button type="submit">
             <span>Enviar</span>
           </button>
         </div>
       </form>
-      <div className={S.botonVolver}>
+      {/* <div className={S.botonVolver}>
         <Link to={'/home'}>
           <button>Regresar</button>
         </Link>
-      </div>
+      </div> */}
 
       <Footer />
     </div>

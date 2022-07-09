@@ -2,14 +2,18 @@ import React from 'react';
 import NavBar from '../../navbar/navbar';
 import { Link } from 'react-router-dom';
 import S from '../SeccionFotos/Fotos.module.css';
+import Footer from '../footer/footer.jsx';
 
 export default function Fotos() {
   return (
-    <div>
+    <div className={S.contenedorGeneral}>
       <NavBar />
 
-      <div className={S.contenedor}>
-        <h1>Galeria de imagenes</h1>
+      <h1 className={S.tituloGaleria}>Galeria de imagenes</h1>
+      <div className={S.contenedor}></div>
+
+      <div>
+        <Footer />
       </div>
     </div>
   );

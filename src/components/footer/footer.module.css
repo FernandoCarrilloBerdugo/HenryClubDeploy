@@ -58,20 +58,24 @@
   transition: all 0.3s ease;
   background: 0 0 10px 10px rgb(0, 0, 0);
 }
-.fb,
-.ig,
-.tw {
+.fb a,
+.ig a,
+.tw a,
+.ldn a {
   color: white;
   margin-bottom: 5px;
 }
-.fb:hover {
-  color: rgb(0, 0, 105);
+.fb a:hover {
+  color: rgb(37, 37, 187);
 }
-.ig:hover {
-  color: rgb(116, 4, 26);
+.ig a:hover {
+  color: rgb(187, 0, 244);
 }
-.tw:hover {
+.tw a:hover {
   color: rgb(45, 169, 218);
+}
+.ldn a:hover {
+  color: rgb(97, 97, 252);
 }
 .noticias h3 {
   text-align: center;

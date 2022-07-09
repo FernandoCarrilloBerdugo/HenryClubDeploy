@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { filterNews, getNews } from '../../redux/Actions/Action';
 import './SearchBar.css';
 // import S from '../../components/Home/Home.module.css';
+import swal from 'sweetalert';
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -19,7 +20,12 @@ export default function SearchBar() {
       if (name.length) {
         dispatch(filterNews(name));
       } else {
-        alert('Debe escribir algo para buscar.');
+        // alert('Debe escribir algo para buscar.');
+        swal({
+          title: 'Debe escribir algo para buscar...',
+          icon: 'warning',
+          button: 'Ok.',
+        });
       }
     } catch (err) {
       throw new Error(err);

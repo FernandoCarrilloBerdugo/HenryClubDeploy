@@ -36,6 +36,7 @@ import {
   GET_CATEGORY_SPORT,
   JWT,
   CLEAR_MEMBER_DETAIL,
+  GET_USER_SPORTS,
 } from './DataTypes';
 
 const url = "https://backhenryclub.herokuapp.com"
@@ -606,4 +607,14 @@ export function sendContact(input) {
       alert(error.response.data)
     }
   }
+}
+
+export function getUserSports(userId){
+  return async function (dispatch) {
+    const { data } = await axios.get(`http://localhost:3001/sport/${userId}`);
+    return dispatch({
+      type: GET_USER_SPORTS,
+      payload: data,
+    });
+  };
 }

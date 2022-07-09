@@ -120,7 +120,6 @@ export default function NewsDetail() {
                       {comment.user && comment.user.hasOwnProperty('username')
                         ? comment.user.username
                         : comment.user.name}
-                      :
                     </h3>
                     <h4>{comment.comment}</h4>
                   </div>

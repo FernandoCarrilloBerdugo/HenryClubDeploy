@@ -1,6 +1,7 @@
 .contenedorGeneral {
   position: absolute;
-  margin-top: 60px;
+  margin-top: 100px;
+  z-index: 10;
 }
 
 .contenidoCentral {
@@ -14,6 +15,10 @@
   border: double 5px rgba(0, 0, 0, 0);
   margin-bottom: 50px;
 }
+.contenido {
+  margin-top: 100px;
+}
+
 .menu {
   display: flex;
   justify-content: center;
@@ -109,9 +114,17 @@ button:after {
 /*noticias*/
 
 .titleNews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 5px 10px 5px gray;
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  height: 60px;
+  margin-top: -250px;
 }
 
 .imagen {
@@ -119,9 +132,18 @@ button:after {
   width: 200px;
 }
 .titleActividades {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 5px 10px 5px gray;
+  color: #fff;
+  background-color: black;
+  width: 100%;
+  height: 60px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 .deportes {
   align-items: center;
@@ -130,18 +152,24 @@ button:after {
   justify-content: space-evenly;
   border-left: 4%;
   border-right: 4%;
+
+  background-color: #e78345;
+  margin-top: -10px;
+
+  padding: 20px;
 }
 
 .deporte {
   width: 30%;
-  height: 600px;
+  height: 800px;
   background: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-left: 4%;
   border-right: 4%;
   display: grid;
   grid-area: 2/4/5/6;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
+  border-radius: 20px 20px;
 }
 .deporte p {
   text-align: justify;
@@ -152,12 +180,27 @@ button:after {
   display: flex;
   flex-direction: column;
 }
+.futbol img {
+  margin-top: 20px;
+  width: 100%;
+  height: 700px;
+}
 
 .hockey {
   display: flex;
   flex-direction: column;
 }
+.hockey img {
+  margin-top: 20px;
+  width: 100%;
+  height: 700px;
+}
 .natacion {
   display: flex;
   flex-direction: column;
+}
+.natacion img {
+  margin-top: 20px;
+  width: 100%;
+  height: 700px;
 }
