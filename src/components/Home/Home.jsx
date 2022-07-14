@@ -53,7 +53,7 @@ export default function Home() {
   useEffect(() => {
     console.log(isAuthenticated)
     isAuthenticated && !localStorage.getItem('token') && dispatch(googleLogin(user))
-    
+    isAuthenticated && !localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
   }, [isAuthenticated])
 
 
