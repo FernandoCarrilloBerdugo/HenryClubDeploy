@@ -20,7 +20,7 @@ export default function Navbar() {
   const alertaLogOut = () => {
     window.localStorage.removeItem('data');
     window.localStorage.removeItem('token');
-    isAuthenticated && logout({ returnTo: "https://club-henry.vercel.app/home" })
+    isAuthenticated && logout({ returnTo: "http://localhost:3000/home" })
     swal({
       title: '¡Sesión Cerrada!',
       text: '¡Adios!',

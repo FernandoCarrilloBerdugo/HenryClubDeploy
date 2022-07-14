@@ -671,7 +671,7 @@ export function deleteContact(id) {
 			);
 			return dispatch({ type: DELETE_CONTACT, payload: data });
 		} catch (error) {
-			alert(error.response.data);
+			console.log(error.response.data);
 		}
 	};
 }
@@ -785,7 +785,6 @@ export function jasonWebToken(input) {
 				input
 			);
 			dispatch({ type: JWT, payload: data });
-			// localStorage.setItem(data);
 
 			window.localStorage.setItem("token", JSON.stringify(data));
 			localStorage.setItem(
@@ -794,7 +793,7 @@ export function jasonWebToken(input) {
 			);
 			return data;
 		} catch (error) {
-			alert(error);
+			console.log("este es el error", error);
 		}
 	};
 }

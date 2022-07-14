@@ -4,7 +4,8 @@ import { useEffect, useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Table,TableContainer,TableHead,TableCell,TableBody,TableRow, Modal, Button} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
-import {getContacts,deleteContacts} from "../../redux/Actions/Action";
+import {getContacts,deleteContact} from "../../redux/Actions/Action";
+import swal from 'sweetalert';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -31,6 +32,7 @@ export default function Request () {
   const dispatch= useDispatch()
   const contacts = useSelector((state) => state.contacts);
   const [deleteModal, setdeleteModal]= useState (false);
+  const [deleteId, setDeleteId] = useState('');
 
 
   useEffect(() => {
@@ -39,8 +41,15 @@ export default function Request () {
 
 
 
-  const BorrarMember = (id) => {
-    // dispatch(deleteContacts(is));
+  const BorrarMember = () => {
+    dispatch(deleteContact(deleteId))
+    .then(res => dispatch(getContacts()))
+    .then(res =>
+      swal({
+        title: '¡Mensaje Eliminado!',
+        icon: 'success',
+        button: 'Ok.',
+      }))
     abricerrarMEliminar()
   };
 
@@ -48,7 +57,11 @@ export default function Request () {
     setdeleteModal(!deleteModal)
   };
 
-
+  const selectAction = (e, caso) => {
+    setDeleteId(e.id);
+    
+    caso === 'Eliminar'&& abricerrarMEliminar()
+  };
   const bodyEliminar=(
     <div className={styles.modal}>
     <p>Are you sure you want to delete this contact message de <b>{contacts.name}</b>?</p>
@@ -77,14 +90,14 @@ export default function Request () {
 </TableRow>
 </TableHead>
 <TableBody>
-    {contacts.map( e=>(
+    {contacts.map(e=>(
       <TableRow key={e.id}> 
       <TableCell>{e.name}</TableCell>
       <TableCell>{e.surname}</TableCell>
       <TableCell>{e.message}</TableCell>
       <TableCell>{e.phone}</TableCell>
       <TableCell>{e.email}</TableCell>
-      <TableCell><Delete className={styles.iconos} onClick={()=> abricerrarMEliminar()}/>
+      <TableCell><Delete className={styles.iconos} onClick={() => selectAction(e, 'Eliminar')}/>
       </TableCell>
       </TableRow> ) )}
 </TableBody>

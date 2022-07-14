@@ -50,11 +50,21 @@ export default function Login() {
     } else {
       // console.log(jasonWebToken(datos));
       dispatch(jasonWebToken(datos)).then(res => {
-        console.log(localStorage.getItem('data'));
-        if (JSON.parse(localStorage.getItem('data')).role.name === 'Admin') {
-          history.push('/admin');
+        if(res !== undefined){
+          alertaLogin()
+          console.log(localStorage.getItem('data'));
+          if (JSON.parse(localStorage.getItem('data')).role.name === 'Admin') {
+            history.push('/admin');
+          } else {
+            history.push('/home');
+          }
         } else {
-          history.push('/home');
+          swal({
+            title: '¡Datos Incorrectos!',
+            icon: 'error',
+            button: 'Ok.',
+            timer: '2000',
+          });
         }
       });
     }
@@ -103,7 +113,7 @@ export default function Login() {
             name="password"
             id="password"
             type="password"
-            placeholder="Password..."
+            placeholder="Contraseña..."
             autoComplete="off"
           />
           {/* {errors.password && <p className={s.errors}>{errors.password}</p>} */}
@@ -111,7 +121,7 @@ export default function Login() {
           {/* HACER RENDERIZADO CONDICIONAL PARA USER O ADMIN */}
 
           <button
-            onClick={() => alertaLogin()}
+            // onClick={}
             className={s.submit}
             type="submit"
           >

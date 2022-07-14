@@ -32,6 +32,7 @@ import {
 	DELETE_CATEGORY_SPORT,
 	GET_NEW_LETTERS,
 	ALL_ALBUMS,
+	DELETE_CONTACT,
 } from "../Actions/DataTypes";
 
 const initialState = {
@@ -290,6 +291,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
       };
       case  UPDATE_CATEGORY_SPORT: 
+      return {
+        ...state,
+      };
+
+			case DELETE_CONTACT:
       return {
         ...state,
       };
