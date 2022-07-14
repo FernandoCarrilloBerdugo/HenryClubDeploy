@@ -322,7 +322,7 @@ export default function Socios() {
       <br />
       <label>Rol</label>
       <select className={styles.select} onChange={handleSelect} name="roleId">
-        <option value=""> Rol </option>
+        <option value={input.roleId}> Rol </option>
         {roles &&
           roles.map(role => (
             <option key={role.id} value={role.id}>
@@ -383,7 +383,7 @@ export default function Socios() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(e => (
                 <TableRow key={e.id}>
-                  <TableCell>{e.membershipNumber}</TableCell>
+                  {/* <TableCell>{e.membershipNumber}</TableCell> */}
                   <TableCell>{e.name} </TableCell>
                   <TableCell>{e.surname}</TableCell>
                   <TableCell>{e.username}</TableCell>

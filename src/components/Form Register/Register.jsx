@@ -76,8 +76,14 @@ export default function Register() {
   function handlePasswordEqual(e) {
     setInputs({
       ...inputs,
-      passwordTwo: e.target.value,
+      [e.target.name]: e.target.value,
     });
+    setError(
+      validate({
+        ...inputs,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   const onSubmit = e => {

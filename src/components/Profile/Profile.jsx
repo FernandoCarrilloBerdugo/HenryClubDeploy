@@ -63,9 +63,9 @@ export default function Profile() {
   useEffect(() => {
     dispatch(detailMember(id));
 
-    return () => {
-      dispatch(clearMemberDetail());
-    };
+    // return () => {
+    //   dispatch(clearMemberDetail());
+    // };
   }, []);
 
   const GuardarCambios = id => {
@@ -73,15 +73,17 @@ export default function Profile() {
     if (details.name && details.surname || details.photo) {
       dispatch(
         updateMember(JSON.parse(localStorage.getItem('data')).id, input)
-      );
-      window.location.reload(true)
-      swal({
-        title: 'Perfil modificado',
-        icon: 'success',
-        timer: "1000"
+      ).then(res => {
+        
+        swal({
+          title: 'Perfil modificado',
+          icon: 'success',
+          timer: "1000"
+        });
+        window.location.reload(true)
+        setModal(false)
+        dispatch(detailMember());
       });
-      setModal(false)
-      dispatch(detailMember());
 
 
     }
@@ -172,7 +174,7 @@ export default function Profile() {
         </div>
 
         <div className="datosDeUsuario">
-          {JSON.parse(localStorage.getItem('data')).isOlder === false ? (
+          {details.isOlder === false ? (
             <div className="datosTutor">
               <h1>DATOS DEL TUTOR:</h1>
               <h4>Nombre: {details.tutorName}</h4>

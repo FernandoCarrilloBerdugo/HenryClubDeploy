@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { payment } from "../../redux/Actions/Action";
 import "./SportCard.css";
 import { useState } from "react";
@@ -8,6 +8,8 @@ import { useState } from "react";
 export default function SportCard({sport}) {
 
 	const dispatch = useDispatch();
+
+	const member = useSelector(state => state.memberDetail)
 
 	const [input, setInput] = useState({
 		payer_email: localStorage.getItem("data")
@@ -87,9 +89,18 @@ export default function SportCard({sport}) {
 						<p>Profesor: {sport.user.name}</p>
 						<p>${sport.fee}</p>
 					</div>
-					<button onClick={handleClick}>
-						Inscribete
-					</button>
+					{
+						//Eres miembro? (estas inscrito ? no renderices boton : renderiza boton) : Registrate para poder inscribirte
+					localStorage.getItem('token') 	
+					? 	(	!member.inscriptions.filter(activity => activity.CategorySportId === sport.id).length >= 1 		 
+					?	<button onClick={handleClick}>
+					Inscribete
+					</button>		 
+					:	<p>Ya estás inscrito a esta actividad</p>			) 		
+					: <p>Registrate para poder inscribirte</p>
+
+
+				}
 				</ContenedorModal>
 			}
 		</div>

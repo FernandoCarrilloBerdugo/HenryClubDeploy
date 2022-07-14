@@ -59,6 +59,7 @@ export default function Natacion() {
                 <SportCard
                   key={i}
                   sport={activity}
+                  id={activity.id}
                 />
               )
             })}

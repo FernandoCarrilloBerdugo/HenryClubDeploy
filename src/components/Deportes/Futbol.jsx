@@ -61,6 +61,7 @@ export default function Futbol() {
                 <SportCard
                   key={i}
                   sport={activity}
+                  id={activity.id}
                 />
               )
             })}

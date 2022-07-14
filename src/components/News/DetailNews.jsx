@@ -16,6 +16,8 @@ import PuffLoader from 'react-spinners/PuffLoader';
 export default function NewsDetail() {
   const [loading, setLoading] = useState(false);
 
+  const member = useSelector(state => state.memberDetail);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -177,7 +179,8 @@ export default function NewsDetail() {
 
               {localStorage.getItem('data') ? (
                 <div>
-                  {JSON.parse(localStorage.getItem('data')).name}
+                  {/* {JSON.parse(localStorage.getItem('data')).name} */}
+                  {member.username}
 
                   <div>
                     <textarea

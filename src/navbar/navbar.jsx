@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 export default function Navbar() {
   const history = useHistory()
   const { logout, isAuthenticated } = useAuth0()
+  const member = useSelector(state => state.memberDetail);
 
   const alertaLogOut = () => {
     window.localStorage.removeItem('data');
@@ -81,7 +82,8 @@ export default function Navbar() {
           <div className="dropdown">
             <p className="botonDeslizable">
               {localStorage.getItem('data') ? (
-                <div>{JSON.parse(localStorage.getItem('data')).name}</div>
+                // <div>{JSON.parse(localStorage.getItem('data')).name}</div>
+                <div>{member.username}</div>
               ) : (
                 'No hay usuario logueado'
               )}

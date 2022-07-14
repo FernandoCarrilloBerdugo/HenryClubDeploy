@@ -15,12 +15,12 @@ export default function TableHeader(props) {
 
       <TableRow>
 
-        <TableCell key="membershipNumber">
+        {/* <TableCell key="membershipNumber">
           <TableSortLabel
             active={valueToOrderBy === "membershipNumber"}
             direction={valueToOrderBy === "membershipNumber" ? orderDirection : "asc"}
             onClick={createSortHandler("membershipNumber")}
-          > N° Socio</TableSortLabel></TableCell>
+          > N° Socio</TableSortLabel></TableCell> */}
 
         <TableCell key="name">
           <TableSortLabel

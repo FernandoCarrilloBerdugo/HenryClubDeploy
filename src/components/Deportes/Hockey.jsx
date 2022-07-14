@@ -59,6 +59,7 @@ export default function Hockey() {
                 <SportCard
                   key={i}
                   sport={activity}
+                  id={activity.id}
                 />
               )
             })}

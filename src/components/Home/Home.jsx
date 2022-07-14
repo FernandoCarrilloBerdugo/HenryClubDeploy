@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getNews, postNewLetters, googleLogin } from '../../redux/Actions/Action';
+import { getNews, postNewLetters, googleLogin, detailMember } from '../../redux/Actions/Action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import S from './Home.module.css';
@@ -47,11 +47,13 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getNews());
+    localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
   }, [dispatch]);
 
   useEffect(() => {
     console.log(isAuthenticated)
     isAuthenticated && !localStorage.getItem('token') && dispatch(googleLogin(user))
+    
   }, [isAuthenticated])
 
 

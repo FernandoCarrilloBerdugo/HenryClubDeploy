@@ -809,8 +809,6 @@ export function sendContact(input) {
 				"https://backhenryclub.herokuapp.com/Contact",
 				input
 			);
-			console.log(data);
-			alert("Se ha enviado los datos");
 			return data;
 		} catch (error) {
 			alert(
