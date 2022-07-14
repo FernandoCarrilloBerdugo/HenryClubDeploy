@@ -5,7 +5,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button onClick={() => logout({ returnTo: "https://club-henry.vercel.app/home" })}>
+    <button onClick={() => logout({ returnTo: "http://localhost:3000/home" })}>
       Log Out
     </button>
   );

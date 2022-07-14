@@ -1,59 +1,56 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import { icons } from "react-icons";
 import swal from "sweetalert";
 
 import {
-
-  ALL_MEMBERS,
-  ALL_IMAGES,
-  ALL_NEWS,
-  DETAIL_NEWS,
-  DETAIL_MEMBER,
-  DETAIL_TEACHER,
-  ALL_COMMENTS,
-  ALL_CONTACTS,
-  UPDATE_NEWS,
-  UPDATE_COMMENT,
-  UPDATE_MEMBER,
-  DELETE_MEMBER,
-  DELETE_NEWS,
-  DELETE_COMMENT,
-  DELETE_CONTACT,
-  SEARCH_SEARCH,
-  CLEAR_PAGE,
-  CLEAR_COMMENTS,
-  DETAIL_EVENTO,
-  ALL_EVENTO,
-  GET_SPORT,
-  GET_CATEGORY,
-  UPDATE_CATEGORY,
-  GET_TEACHER,
-  ALL_PAYS,
-  DELETE_TEACHER,
-  DELETE_CATEGORY,
-  ALL_ROLES,
-  ALL_INSCRIPTIONS,
-  DETAIL_CATEGORY_SPORT,
-  GET_CATEGORY_SPORT,
-  JWT,
-  CLEAR_MEMBER_DETAIL,
-  GET_USER_SPORTS,
-  PAYMENT,
-  DEFAULT_GET_CATEGORY_SPORT,
-
-  GET_NEW_LETTERS,
-
-  ALL_ALBUMS,
-
-} from './DataTypes';
+	ALL_MEMBERS,
+	ALL_IMAGES,
+	ALL_NEWS,
+	DETAIL_NEWS,
+	DETAIL_MEMBER,
+	DETAIL_TEACHER,
+	ALL_COMMENTS,
+	ALL_CONTACTS,
+	UPDATE_NEWS,
+	UPDATE_COMMENT,
+	UPDATE_MEMBER,
+	DELETE_MEMBER,
+	DELETE_NEWS,
+	DELETE_COMMENT,
+	DELETE_CONTACT,
+	SEARCH_SEARCH,
+	CLEAR_PAGE,
+	CLEAR_COMMENTS,
+	DETAIL_EVENTO,
+	ALL_EVENTO,
+	GET_SPORT,
+	GET_CATEGORY,
+	UPDATE_CATEGORY,
+	GET_TEACHER,
+	ALL_PAYS,
+	DELETE_TEACHER,
+	ALL_ROLES,
+	ALL_INSCRIPTIONS,
+	DETAIL_CATEGORY_SPORT,
+	GET_CATEGORY_SPORT,
+	JWT,
+	CLEAR_MEMBER_DETAIL,
+	GET_USER_SPORTS,
+	DEFAULT_GET_CATEGORY_SPORT,
+	GET_NEW_LETTERS,
+	ALL_ALBUMS,
+	UPDATE_CATEGORY_SPORT,
+	DELETE_CATEGORY_SPORT,
+} from "./DataTypes";
 
 //Get
 
 export function getMembers() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/user");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/user"
+			);
 			return dispatch({ type: ALL_MEMBERS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -64,7 +61,9 @@ export function getMembers() {
 export function getContacts() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/contact");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/contact"
+			);
 			return dispatch({ type: ALL_CONTACTS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -75,7 +74,9 @@ export function getContacts() {
 export function getGallery() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/photo");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/photo"
+			);
 			return dispatch({ type: ALL_IMAGES, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -86,7 +87,9 @@ export function getGallery() {
 export function getAlbum() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/album");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/album"
+			);
 			return dispatch({ type: ALL_ALBUMS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -97,24 +100,28 @@ export function getAlbum() {
 export function getNews() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/news");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/news"
+			);
 			return dispatch({ type: ALL_NEWS, payload: data });
 		} catch (error) {
 			error = {
 				id: "No encontrado",
 				title: "No se encontro lo que buscaba...",
 				subtitle: "No se encontro lo que buscaba...",
-				image: "https://www.seekpng.com/png/detail/212-2123432_404-error-error-404-in-png.png"
-			}
+				image:
+					"https://www.seekpng.com/png/detail/212-2123432_404-error-error-404-in-png.png",
+			};
 		}
 	};
 }
 
-
 export function getRoles() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/role");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/role"
+			);
 			return dispatch({ type: ALL_ROLES, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -123,22 +130,24 @@ export function getRoles() {
 }
 
 export function getInscription() {
-
-  return async dispatch => {
-    try {
-      let { data } = await axios.get('https://backhenryclub.herokuapp.com/inscription');
-      return dispatch({ type: ALL_INSCRIPTIONS, payload: data[1] });
-    } catch (error) {
-      alert(error.response.data);
-    }
-  };
-
+	return async (dispatch) => {
+		try {
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/inscription"
+			);
+			return dispatch({ type: ALL_INSCRIPTIONS, payload: data[1] });
+		} catch (error) {
+			alert(error.response.data);
+		}
+	};
 }
 
 export function getComments(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get(`https://backhenryclub.herokuapp.com/comment/${id}`);
+			let { data } = await axios.get(
+				`https://backhenryclub.herokuapp.com/comment/${id}`
+			);
 			if (data) return dispatch({ type: ALL_COMMENTS, payload: data });
 			//Necesitamos que si no encuentra ningun comentario que el back regrese un array vacío
 			// else return dispatch({type:ALL_COMMENTS, payload:[]})
@@ -151,7 +160,9 @@ export function getComments(id) {
 export function getEvents() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get("https://backhenryclub.herokuapp.com/calendar");
+			let { data } = await axios.get(
+				"https://backhenryclub.herokuapp.com/calendar"
+			);
 			return dispatch({
 				type: ALL_EVENTO,
 				payload: data,
@@ -164,7 +175,9 @@ export function getEvents() {
 
 export function getSport() {
 	return async function (dispatch) {
-		const { data } = await axios.get("https://backhenryclub.herokuapp.com/sport");
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/sport"
+		);
 		return dispatch({
 			type: GET_SPORT,
 			payload: data,
@@ -174,15 +187,15 @@ export function getSport() {
 
 // Ruta para traerse todos los deportes relacionados a mi usuario
 export function getUserSports(userId) {
-
-  return async function (dispatch) {
-    const { data } = await axios.get(`https://backhenryclub.herokuapp.com/sport/${userId}`);
-    return dispatch({
-      type: GET_USER_SPORTS,
-      payload: data,
-    });
-  };
-
+	return async function (dispatch) {
+		const { data } = await axios.get(
+			`https://backhenryclub.herokuapp.com/sport/${userId}`
+		);
+		return dispatch({
+			type: GET_USER_SPORTS,
+			payload: data,
+		});
+	};
 }
 
 export function createSport(input) {
@@ -201,7 +214,9 @@ export function createSport(input) {
 
 export function getTeacher() {
 	return async function (dispatch) {
-		const { data } = await axios.get("https://backhenryclub.herokuapp.com/teacher");
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/teacher"
+		);
 		return dispatch({
 			type: GET_TEACHER,
 			payload: data,
@@ -211,7 +226,9 @@ export function getTeacher() {
 
 export function getCategory() {
 	return async function (dispatch) {
-		const { data } = await axios.get("https://backhenryclub.herokuapp.com/category");
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/category"
+		);
 		return dispatch({
 			type: GET_CATEGORY,
 			payload: data,
@@ -220,25 +237,27 @@ export function getCategory() {
 }
 
 export function getCategorySport() {
-
-  return async function (dispatch) {
-    const { data } = await axios.get('https://backhenryclub.herokuapp.com/categorysport');
-    return dispatch({
-      type: GET_CATEGORY_SPORT,
-      payload: data,
-    });
-  };
+	return async function (dispatch) {
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/categorysport"
+		);
+		return dispatch({
+			type: GET_CATEGORY_SPORT,
+			payload: data,
+		});
+	};
 }
 
 export function defaultGetCategorySport() {
-  return async function (dispatch) {
-    const { data } = await axios.get('https://backhenryclub.herokuapp.com/categorysport');
-    return dispatch({
-      type: DEFAULT_GET_CATEGORY_SPORT,
-      payload: data,
-    });
-  };
-
+	return async function (dispatch) {
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/categorysport"
+		);
+		return dispatch({
+			type: DEFAULT_GET_CATEGORY_SPORT,
+			payload: data,
+		});
+	};
 }
 
 export function createCategory(input) {
@@ -271,37 +290,43 @@ export function updateCategory(id, input) {
 
 export function updateSport(input) {
 	return async () => {
-		try{
-			console.log(input)
-			let {data} = await axios.put(`https://backhenryclub.herokuapp.com/sport`, input)
-			return data
-		}
-		catch(error){
-			console.log(error)
+		try {
+			console.log(input);
+			let { data } = await axios.put(
+				`https://backhenryclub.herokuapp.com/sport`,
+				input
+			);
+			return data;
+		} catch (error) {
+			console.log(error);
 			alert(error.response.data);
 		}
-	}
+	};
 }
 
 export function deleteSport(id) {
 	return async () => {
 		try {
-			let {data} = await axios.delete(`https://backhenryclub.herokuapp.com/sport/${id}`)
-			return data
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/sport/${id}`
+			);
+			return data;
 		} catch (error) {
-			console.log(error)
-			alert(error.response.data)
+			console.log(error);
+			alert(error.response.data);
 		}
-	}
+	};
 }
 
 export function deleteCategory(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/category/${id}`);
-			return data
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/category/${id}`
+			);
+			return data;
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 	};
 }
@@ -310,7 +335,10 @@ export function deleteCategory(id) {
 export function loginMember(input) {
 	return async function () {
 		try {
-			const { data } = await axios.post("https://backhenryclub.herokuapp.com/user", input);
+			const { data } = await axios.post(
+				"https://backhenryclub.herokuapp.com/user",
+				input
+			);
 			return data;
 		} catch (error) {
 			alert(error.response.data);
@@ -323,7 +351,9 @@ export function loginMember(input) {
 export function detailMember(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get(`https://backhenryclub.herokuapp.com/user/${id}`);
+			let { data } = await axios.get(
+				`https://backhenryclub.herokuapp.com/user/${id}`
+			);
 			return dispatch({ type: DETAIL_MEMBER, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -334,7 +364,9 @@ export function detailMember(id) {
 export function detailNews(id) {
 	return async function (dispatch) {
 		try {
-			const { data } = await axios.get(`https://backhenryclub.herokuapp.com/news/${id}`);
+			const { data } = await axios.get(
+				`https://backhenryclub.herokuapp.com/news/${id}`
+			);
 			dispatch({
 				type: DETAIL_NEWS,
 				payload: data,
@@ -348,7 +380,9 @@ export function detailNews(id) {
 export function detailEvento(id) {
 	return async function (dispatch) {
 		try {
-			const json = await axios.get(`https://backhenryclub.herokuapp.com/calendar/${id}`);
+			const json = await axios.get(
+				`https://backhenryclub.herokuapp.com/calendar/${id}`
+			);
 			dispatch({
 				type: DETAIL_EVENTO,
 				payload: json.data,
@@ -360,27 +394,27 @@ export function detailEvento(id) {
 }
 
 export function detailCategorySport(id) {
-
-  return async function (dispatch) {
-    try {
-      const { data } = await axios.get(
-        `https://backhenryclub.herokuapp.com/categorysport/${id}`
-      );
-      dispatch({
-        type: DETAIL_CATEGORY_SPORT,
-        payload: data,
-      });
-    } catch (error) {
-      alert(error.response.data);
-    }
-  };
-
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.get(
+				`https://backhenryclub.herokuapp.com/categorysport/${id}`
+			);
+			dispatch({
+				type: DETAIL_CATEGORY_SPORT,
+				payload: data,
+			});
+		} catch (error) {
+			alert(error.response.data);
+		}
+	};
 }
 
 export function detailTeacher(id) {
 	return async function (dispatch) {
 		try {
-			const json = await axios.get(`https://backhenryclub.herokuapp.com/teacher/${id}`);
+			const json = await axios.get(
+				`https://backhenryclub.herokuapp.com/teacher/${id}`
+			);
 			dispatch({
 				type: DETAIL_TEACHER,
 				payload: json.data,
@@ -407,31 +441,35 @@ export function createNews(userId, input) {
 	};
 }
 
-export function postAlbum(payload){
-	return async function(){
-	  const json = await axios.post('https://backhenryclub.herokuapp.com/album', payload);
-	  return json
-	}
-  }
-  
-  export async function postImages(payload){
-	// return async function() {
-		try{
-	  return await axios.post(`https://backhenryclub.herokuapp.com/photo/${payload.album}`, payload).then(
-			swal({
-				title: "Foto agregada.",
-				icon: "success",
-				button: "Ok."
-		})
-		)
-	 
-}catch(error){
-console.log(error)
+export function postAlbum(payload) {
+	return async function () {
+		const json = await axios.post(
+			"https://backhenryclub.herokuapp.com/album",
+			payload
+		);
+		return json;
+	};
 }
-	
-  }
-  
-  
+
+export async function postImages(payload) {
+	// return async function() {
+	try {
+		return await axios
+			.post(
+				`https://backhenryclub.herokuapp.com/photo/${payload.album}`,
+				payload
+			)
+			.then(
+				swal({
+					title: "Foto agregada.",
+					icon: "success",
+					button: "Ok.",
+				})
+			);
+	} catch (error) {
+		console.log(error);
+	}
+}
 
 export function createInscription(userId, input) {
 	return async function () {
@@ -448,23 +486,21 @@ export function createInscription(userId, input) {
 }
 
 export function createActivity(input) {
-
-  return async function () {
-    try {
-      const { data } = await axios.post(
-        `https://backhenryclub.herokuapp.com/categorysport/`,
-        input
-      );
-      swal({
-        title: "Actividad creada",
-        button: "Ok."
-      })
-      return data;
-    } catch (error) {
-      alert(error.response.data);
-    }
-  };
-
+	return async function () {
+		try {
+			const { data } = await axios.post(
+				`https://backhenryclub.herokuapp.com/categorysport/`,
+				input
+			);
+			swal({
+				title: "Actividad creada",
+				button: "Ok.",
+			});
+			return data;
+		} catch (error) {
+			alert(error.response.data);
+		}
+	};
 }
 
 export function createMember(input) {
@@ -476,7 +512,10 @@ export function createMember(input) {
 				input.isOlder = false;
 			}
 
-			let { data } = await axios.post(`https://backhenryclub.herokuapp.com/user`, input);
+			let { data } = await axios.post(
+				`https://backhenryclub.herokuapp.com/user`,
+				input
+			);
 			return data;
 		} catch (error) {
 			alert(error.response.data);
@@ -508,17 +547,23 @@ export function createComment(newsId, userId, input) {
 export function createContact(input) {
 	return async () => {
 		try {
-			let { data } = await axios.post("https://backhenryclub.herokuapp.com/contact", input);
+			let { data } = await axios.post(
+				"https://backhenryclub.herokuapp.com/contact",
+				input
+			);
 			return data;
 		} catch (error) {
-console.log(error)
+			console.log(error);
 		}
 	};
 }
 
 export function postEvento(payload) {
 	return async function () {
-		const json = await axios.post("https://backhenryclub.herokuapp.com/calendar", payload);
+		const json = await axios.post(
+			"https://backhenryclub.herokuapp.com/calendar",
+			payload
+		);
 		return json;
 	};
 }
@@ -527,7 +572,10 @@ export function postEvento(payload) {
 export function updateNews(id, input) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.put(`https://backhenryclub.herokuapp.com/news/${id}`, input);
+			let { data } = await axios.put(
+				`https://backhenryclub.herokuapp.com/news/${id}`,
+				input
+			);
 			return dispatch({ type: UPDATE_NEWS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -552,7 +600,10 @@ export function updateComment(id, input) {
 export function updateMember(id, input) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.put(`https://backhenryclub.herokuapp.com/user/${id}`, input);
+			let { data } = await axios.put(
+				`https://backhenryclub.herokuapp.com/user/${id}`,
+				input
+			);
 			return dispatch({ type: UPDATE_MEMBER, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -564,7 +615,9 @@ export function updateMember(id, input) {
 export function deleteNews(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/news/${id}`);
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/news/${id}`
+			);
 			return dispatch({ type: DELETE_NEWS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -575,7 +628,9 @@ export function deleteNews(id) {
 export function deleteTeacher(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/news/${id}`);
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/news/${id}`
+			);
 			return dispatch({ type: DELETE_TEACHER, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -586,7 +641,9 @@ export function deleteTeacher(id) {
 export function deleteComment(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/comment/${id}`);
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/comment/${id}`
+			);
 			return dispatch({ type: DELETE_COMMENT, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -597,7 +654,9 @@ export function deleteComment(id) {
 export function deleteMember(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/user/${id}`);
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/user/${id}`
+			);
 			return dispatch({ type: DELETE_MEMBER, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -607,7 +666,9 @@ export function deleteMember(id) {
 export function deleteContact(id) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.delete(`https://backhenryclub.herokuapp.com/contact/${id}`);
+			let { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/contact/${id}`
+			);
 			return dispatch({ type: DELETE_CONTACT, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -653,44 +714,46 @@ export function getPay() {
 }
 
 export function payment(input) {
-
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.post(
-        `https://mp-back-last.herokuapp.com/payment`,
-        input
-      );
-      console.log(data.url);
-      return data.url;
-    } catch (error) {
-      alert(
-        'No se pudo procesar la solicitud, por favor espere o si el error persiste, pongase en contacto con el administrador'
-      );
-    }
-  };
-
+	return async (dispatch) => {
+		try {
+			const { data } = await axios.post(
+				`https://mp-back-last.herokuapp.com/payment`,
+				input
+			);
+			console.log(data.url);
+			return data.url;
+		} catch (error) {
+			alert(
+				"No se pudo procesar la solicitud, por favor espere o si el error persiste, pongase en contacto con el administrador"
+			);
+		}
+	};
 }
 
 //Filtrar noticias
 
 export function filterNews(title) {
 	return async (dispatch) => {
-		try{
-		let { data } = await axios.get(`https://backhenryclub.herokuapp.com/news?title=${title}`);
-		return dispatch({ type: SEARCH_SEARCH, payload: data });
-	}catch(error){
-		swal({
-			title: "No se encontró su busqueda.",
-			text: "Intente escribir un nombre de una noticia o asegurese de que este bien escrito.",
-			icon: "error",
-			button: "Ok."
-		})
-	}
-};
+		try {
+			let { data } = await axios.get(
+				`https://backhenryclub.herokuapp.com/news?title=${title}`
+			);
+			return dispatch({ type: SEARCH_SEARCH, payload: data });
+		} catch (error) {
+			swal({
+				title: "No se encontró su busqueda.",
+				text: "Intente escribir un nombre de una noticia o asegurese de que este bien escrito.",
+				icon: "error",
+				button: "Ok.",
+			});
+		}
+	};
 }
 export function filterNewsByName(name) {
 	return async (dispatch) => {
-		let { data } = await axios.get(`https://backhenryclub.herokuapp.com/news?name=${name}`);
+		let { data } = await axios.get(
+			`https://backhenryclub.herokuapp.com/news?name=${name}`
+		);
 		return dispatch({ type: SEARCH_SEARCH, payload: data });
 	};
 }
@@ -702,10 +765,10 @@ export function clearComments() {
 //Filtrar por categoria:
 
 export function filterCategory(payload) {
-  return { type: 'FILTER_CATEGORY', payload: payload };
+	return { type: "FILTER_CATEGORY", payload: payload };
 }
 export function filterDefaultCategory(payload) {
-  return { type: 'DEFAULT_FILTER_CATEGORY', payload: payload };
+	return { type: "DEFAULT_FILTER_CATEGORY", payload: payload };
 }
 //Limpiar estado
 export const clearPage = () => {
@@ -717,7 +780,10 @@ export const clearPage = () => {
 export function jasonWebToken(input) {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.post("https://backhenryclub.herokuapp.com/login", input);
+			let { data } = await axios.post(
+				"https://backhenryclub.herokuapp.com/login",
+				input
+			);
 			dispatch({ type: JWT, payload: data });
 			// localStorage.setItem(data);
 
@@ -734,14 +800,16 @@ export function jasonWebToken(input) {
 }
 
 export function clearMemberDetail() {
-
 	return { type: CLEAR_MEMBER_DETAIL };
 }
 
 export function sendContact(input) {
 	return async (dispatch) => {
 		try {
-			const { data } = await axios.post("https://backhenryclub.herokuapp.com/Contact", input);
+			const { data } = await axios.post(
+				"https://backhenryclub.herokuapp.com/Contact",
+				input
+			);
 			console.log(data);
 			alert("Se ha enviado los datos");
 			return data;
@@ -755,7 +823,7 @@ export function sendContact(input) {
 }
 
 export function googleLogin(input) {
-	return async dispatch => {
+	return async (dispatch) => {
 		console.log("Procesando token de google...");
 
 		const user = {
@@ -767,8 +835,11 @@ export function googleLogin(input) {
 			sub: input.sub,
 		};
 
-		const { data } = await axios.post("https://backhenryclub.herokuapp.com/auth0", user);
-    dispatch({ type: JWT, payload: data })
+		const { data } = await axios.post(
+			"https://backhenryclub.herokuapp.com/auth0",
+			user
+		);
+		dispatch({ type: JWT, payload: data });
 
 		window.localStorage.setItem("token", JSON.stringify(data));
 		localStorage.setItem(
@@ -782,16 +853,21 @@ export function googleLogin(input) {
 	};
 }
 
-export function postNewLetters(payload){
-  return async function(){
-    const json = await axios.post('https://backhenryclub.herokuapp.com/newsletter', payload);
-    return json
-  }
+export function postNewLetters(payload) {
+	return async function () {
+		const json = await axios.post(
+			"https://backhenryclub.herokuapp.com/newsletter",
+			payload
+		);
+		return json;
+	};
 }
 
 export function getNewLetters() {
 	return async function (dispatch) {
-		const { data } = await axios.get("https://backhenryclub.herokuapp.com/newsletter");
+		const { data } = await axios.get(
+			"https://backhenryclub.herokuapp.com/newsletter"
+		);
 		return dispatch({
 			type: GET_NEW_LETTERS,
 			payload: data,
@@ -799,11 +875,43 @@ export function getNewLetters() {
 	};
 }
 
+export function banMember(id, input) {
+	return async function () {
+		const ban = { isBanned: !input.isBanned };
+		const { data } = await axios.put(
+			`https://backhenryclub.herokuapp.com/user/${id}`,
+			ban
+		);
+		return data;
+	};
+}
 
-export function banMember(id, input){
-	return async function(){
-		const ban = {isBanned: !input.isBanned}
-		const {data} = await axios.put(`https://backhenryclub.herokuapp.com/user/${id}`, ban)
-		return data
-	}
+export function deleteCategorySport(id) {
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.delete(
+				`https://backhenryclub.herokuapp.com/categorysport/${id}`
+			);
+			return dispatch({ type: DELETE_CATEGORY_SPORT, payload: data });
+		} catch (error) {
+			console.log(error.response.data);
+		}
+	};
+}
+
+export function putCategorySport(id, input) {
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.put(
+				`https://backhenryclub.herokuapp.com/categorysport/${id}`,
+				input
+			);
+			return dispatch({
+				type: UPDATE_CATEGORY_SPORT,
+				payload: data,
+			});
+		} catch (error) {
+			console.log(error.response.data);
+		}
+	};
 }
