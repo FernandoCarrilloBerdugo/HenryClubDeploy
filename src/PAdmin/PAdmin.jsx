@@ -54,23 +54,11 @@ export default function PAdmin() {
               <NavLink to="/admin/planes" className={s.link}>
                 <li className={s.item}>  <Storefront className={s.icon} /> Ver Actividades</li>
               </NavLink>
-              <NavLink to="/admin/post" className={s.link}>
-                <li className={s.item}>  <Storefront className={s.icon} /> Newsletters</li>
-              </NavLink>
-              <NavLink to="/admin/request" className={s.link}>
-                <li className={s.item}>  <Storefront className={s.icon} /> Requests</li>
-              </NavLink>
               <NavLink to="/admin/Categorias" className={s.link}>
                 <li className={s.item}>  <Storefront className={s.icon} /> Categorias</li>
               </NavLink>
               <NavLink to="/admin/Deportes" className={s.link}>
                 <li className={s.item}>  <Storefront className={s.icon} /> Deportes</li>
-              </NavLink>
-              <NavLink to="/admin/agregarAlbum" className={s.link}>
-                <li className={s.item}>  <Storefront className={s.icon} /> Crear album de fotos</li>
-              </NavLink>
-              <NavLink to="/admin/agregarImagen" className={s.link}>
-                <li className={s.item}>  <Storefront className={s.icon} /> Subir fotos</li>
               </NavLink>
             </ul>
           </div>
@@ -95,17 +83,43 @@ export default function PAdmin() {
               </NavLink>
             </ul>
           </div>
+
+
+          <div className={s.menu}>
+            <h3 className={s.titulo}>MENSAJES</h3>
+            <ul className={s.lista}>
+              <NavLink to="/admin/post" className={s.link}>
+                <li className={s.item}>  <Storefront className={s.icon} /> Subs Newsletters</li>
+              </NavLink>
+              <NavLink to="/admin/request" className={s.link}>
+                <li className={s.item}>  <Storefront className={s.icon} /> Mensajes de Contacto</li>
+              </NavLink>
+            </ul>
+          </div>
+
+          <div className={s.menu}>
+            <h3 className={s.titulo}>FOTOS</h3>
+            <ul className={s.lista}>
+              <NavLink to="/admin/agregarAlbum" className={s.link}>
+                <li className={s.item}>  <Storefront className={s.icon} /> Crear album de fotos</li>
+              </NavLink>
+              <NavLink to="/admin/agregarImagen" className={s.link}>
+                <li className={s.item}>  <Storefront className={s.icon} /> Subir fotos</li>
+              </NavLink>
+            </ul>
+          </div>
+
           <div>
 
 
             {/* <div className={s.menu}>
-              <h3 className={s.titulo}>AGENDA</h3>
-              <ul className={s.lista}>
-                <NavLink to="/admin/agregarImagen" className={s.link}>
-                  <li className={s.item}>  <EventNoteIcon className={s.icon} /> Imagen</li>
-                </NavLink>
-              </ul>
-            </div> */}
+    <h3 className={s.titulo}>AGENDA</h3>
+    <ul className={s.lista}>
+      <NavLink to="/admin/agregarImagen" className={s.link}>
+        <li className={s.item}>  <EventNoteIcon className={s.icon} /> Imagen</li>
+      </NavLink>
+    </ul>
+  </div> */}
 
           </div>
 
@@ -124,7 +138,7 @@ export default function PAdmin() {
           <Route path="/admin/deportes" component={Deportes} />
           <Route path="/admin/agregarImagen" component={AddImages} />
           <Route path="/admin/agregarAlbum" component={AddAlbum} />
-          <Route path="/admin/planes" component={Planes} /> 
+          <Route path="/admin/planes" component={Planes} />
         </div>
       </div>
     </>
