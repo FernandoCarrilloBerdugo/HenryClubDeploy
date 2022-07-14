@@ -1,6 +1,6 @@
 export default function validate(input) {
   let errors ={}
-    if (input.day.length<6) {
+    if (input.day&&input.day.length<5) {
       errors.day = "el dia debe ser un dia de la semana";
     }
     if (!input.day) {
@@ -13,7 +13,7 @@ export default function validate(input) {
     if (!input.fee) {
       errors.fee = "Este campo es obligatorio";
     }
-    if (input.fee<100) {
+    if (input.fee && input.fee<100) {
       errors.fee = "minimo $100";
     }
     if (!input.userId) {
@@ -28,14 +28,14 @@ export default function validate(input) {
     if (!input.finish) {
       errors.finish = "Este campo es obligatorio";
     }
-    if (input.finish<input.start) {
+    if (input.start&&input.finish<input.start) {
       errors.finish = "debe ser un horario posterior";
     }
     if (!input.description) {
       errors.description = "Este campo es obligatorio";
     }
 
-    if (input.description.length<10) {
+    if (input.description&&input.description.length<10) {
       errors.description = "escribe un poco mas";
     }
   return errors;

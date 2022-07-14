@@ -129,12 +129,13 @@ export default function CrearAnuncio() {
 
         // news: [],
       });
-
       swal({
         title: '¡Noticia Creada!',
         icon: 'success',
         button: 'Ok.',
       });
+      // window.location.reload(true)
+
     } else {
       swal({
         title: 'Todos los campos deben llenarse para crear la noticia.',
@@ -180,8 +181,8 @@ export default function CrearAnuncio() {
 
   return (
     <div className={S.contenedorGeneral}>
-      <h1 className={S.titulo}>Crear Noticias</h1>
       <form onSubmit={handleSubit} id="form" className={S.form}>
+        <h1 className={S.titulo}>Crear Noticias</h1>
         <label className={S.labelTit}>Titulo de Noticia: </label>
         <input
           className={S.inputName}
@@ -256,6 +257,7 @@ export default function CrearAnuncio() {
             value=""
           />
           <img
+            className={S.imagen}
             src={
               input.image ||
               'https://www.yiwubazaar.com/resources/assets/images/default-product.jpg'

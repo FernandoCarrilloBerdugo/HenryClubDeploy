@@ -4,6 +4,11 @@
   align-items: center;
   margin: auto;
   flex-wrap: wrap;
+  background-image: url('../../utils/fotos/fondoNoticias.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .menu {
@@ -37,4 +42,16 @@
 .menu a:hover {
   color: #e78345;
   transform: scale(1.2);
+}
+
+/* -------------------------LOADER------------------------- */
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 22%;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoHenry from '../../utils/fotos/LOGODIA.png';
+import logoHenry from '../../utils/fotos/LOGONARANJA.png';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import './headerAdmin.css';
 
@@ -51,7 +51,7 @@ export default function navbar() {
             <div>
               <Link to="/login">
                 <p className="botonDeslizable">
-                  <FaArrowCircleRight />
+                  <FaArrowCircleRight className="flechita" />
                 </p>
               </Link>
 

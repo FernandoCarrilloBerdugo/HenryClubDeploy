@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createMember } from '../../redux/Actions/Action';
 import validate from './Validations/validations';
 import { Link } from 'react-router-dom';
 import style from './Register.module.css';
 import { useHistory } from 'react-router-dom';
-import logoHenry from '../../utils/fotos/LOGODIA.png';
+import logoHenry from '../../utils/fotos/LOGONARANJA.png';
 import swal from 'sweetalert';
 import { boolean } from 'yup';
 
@@ -65,6 +65,12 @@ export default function Register() {
       ...inputs,
       [e.target.name]: e.target.value,
     });
+    setError(
+      validate({
+        ...inputs,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
 
   function handlePasswordEqual(e) {
@@ -78,7 +84,13 @@ export default function Register() {
     e.preventDefault();
     setError(validate(inputs));
     if (Object.keys(error).length > 0) {
-      alert(`falta ${Object.keys(error)}`);
+      // alert(`falta ${Object.keys(error)}`);
+      swal({
+        title: "¡Faltan datos!",
+        description: `Falta ${Object.keys(error)}`,
+        icon: "error",
+        button: "Ok."
+      })
     } else if (
       name &&
       surname &&
@@ -116,7 +128,7 @@ export default function Register() {
           <div className={style.inputContainer}>
             <div className={style.column1}>
               <div>
-                {error.name && <p className={style.error}>{error.name}</p>}
+
                 <label className={style.tag}>Nombre</label>
                 <input
                   className={style.input}
@@ -128,11 +140,10 @@ export default function Register() {
                   placeholder="Nombre..."
                   autoComplete="off"
                 />
+                {error.name && <p className={style.error}>{error.name}</p>}
               </div>
               <div>
-                {error.surname && (
-                  <p className={style.error}>{error.surname}</p>
-                )}
+
                 <label className={style.tag}>Apellido</label>
                 <input
                   className={style.input}
@@ -144,9 +155,12 @@ export default function Register() {
                   placeholder="Apellido..."
                   autoComplete="off"
                 />
+                {error.surname && (
+                  <p className={style.error}>{error.surname}</p>
+                )}
               </div>
               <div>
-                {error.phone && <p className={style.error}>{error.phone}</p>}
+
                 <label className={style.tag}>Número de teléfono</label>
                 <input
                   className={style.input}
@@ -158,9 +172,10 @@ export default function Register() {
                   placeholder="555..."
                   autoComplete="off"
                 />
+                {error.phone && <p className={style.error}>{error.phone}</p>}
               </div>
               <div>
-                {error.email && <p className={style.error}>{error.email}</p>}
+
                 <label className={style.tag}>Email/Correo</label>
                 <input
                   className={style.input}
@@ -172,6 +187,7 @@ export default function Register() {
                   placeholder="Email..."
                   autoComplete="off"
                 />
+                {error.email && <p className={style.error}>{error.email}</p>}
               </div>
 
               <label className={style.tag}>Dirección</label>
@@ -188,7 +204,7 @@ export default function Register() {
 
             <div className={style.column2}>
               <div>
-                {error.dni && <p className={style.error}>{error.dni}</p>}
+
                 <label className={style.tag}>DNI</label>
                 <input
                   className={style.input}
@@ -200,9 +216,10 @@ export default function Register() {
                   placeholder="8888..."
                   autoComplete="off"
                 />
+                {error.dni && <p className={style.error}>{error.dni}</p>}
               </div>
               <div>
-                {error.age && <p className={style.error}>{error.age}</p>}
+
                 <label className={style.tag}>Edad</label>
                 <input
                   className={style.input}
@@ -214,6 +231,7 @@ export default function Register() {
                   placeholder="Edad"
                   autoComplete="off"
                 />
+                {error.age && <p className={style.error}>{error.age}</p>}
                 {age < 18 ? (
                   <div className={style.datosTutor}>
                     <h2>Datos de tutor: </h2>
@@ -229,6 +247,7 @@ export default function Register() {
                         placeholder="Nombre del tutor."
                         autoComplete="off"
                       />
+
                     </div>
 
                     <div>
@@ -243,6 +262,7 @@ export default function Register() {
                         placeholder="Teléfono del tutor."
                         autoComplete="off"
                       />
+
                     </div>
 
                     <div>
@@ -265,9 +285,7 @@ export default function Register() {
               </div>
 
               <div>
-                {error.username && (
-                  <p className={style.error}>{error.username}</p>
-                )}
+
                 <label className={style.tag}>Nombre de usuario</label>
                 <input
                   className={style.input}
@@ -279,12 +297,13 @@ export default function Register() {
                   placeholder="Nombre de usuario..."
                   autoComplete="off"
                 />
+                {error.username && (
+                  <p className={style.error}>{error.username}</p>
+                )}
               </div>
               <div>
-                <p>Al menos 1 letra y 1 número</p>
-                {error.password && (
-                  <p className={style.error}>{error.password}</p>
-                )}
+                <p>Al menos 1 letra y/o 1 número</p>
+
                 <label className={style.tag}>Contraseña</label>
                 <input
                   className={style.input}
@@ -296,13 +315,14 @@ export default function Register() {
                   placeholder="Contraseña..."
                   autoComplete="off"
                 />
+                {error.password && (
+                  <p className={style.error}>{error.password}</p>
+                )}
               </div>
 
               <div>
-                <p>Al menos 1 letra y 1 número</p>
-                {error.passwordTwo && (
-                  <p className={style.error}>{error.passwordTwo}</p>
-                )}
+                <p>Al menos 1 letra y/o 1 número</p>
+
                 <label className={style.tag}>Repite tu contraseña</label>
                 <input
                   className={style.input}
@@ -314,6 +334,9 @@ export default function Register() {
                   placeholder="Repite tu contraseña..."
                   autoComplete="off"
                 />
+                {error.passwordTwo && (
+                  <p className={style.error}>{error.passwordTwo}</p>
+                )}
               </div>
             </div>
           </div>
@@ -328,3 +351,4 @@ export default function Register() {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import S from './GaleriaImg.module.css';
-import futbol from '../../utils/fotos/futbol.jpg';
+import futbol from '../../utils/fotos/futbolInfantil.jpg';
 import hockey from '../../utils/fotos/hockeyGaleria.jpg';
 import natacion from '../../utils/fotos/natacionGaleria.jpg';
 

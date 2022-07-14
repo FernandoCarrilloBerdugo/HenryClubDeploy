@@ -1,0 +1,27 @@
+.album{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.407);
+    background-color:#e783455e;
+    width: 50%;
+}
+.tituloCrearAlbum{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.creaAlbum{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+.espacio2{
+    width: 100%;
+    resize: none;
+}

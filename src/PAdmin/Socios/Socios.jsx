@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { FaBan } from "react-icons/fa";
 import {
   Table,
   TableContainer,
@@ -20,6 +21,7 @@ import {
   createMember,
   updateMember,
   getRoles,
+  banMember,
 } from '../../redux/Actions/Action';
 import swal from 'sweetalert';
 
@@ -93,6 +95,8 @@ export default function Socios() {
   const [deleteId, setDeleteId] = useState('');
   const [editId, setEditId] = useState('');
 
+  console.log(members)
+
   const [input, setInput] = useState({
     name: '',
     surname: '',
@@ -104,6 +108,8 @@ export default function Socios() {
     edad: '',
     password: '123456',
     roleId: '',
+    membershipNumber: '',
+    isBanned: false,
   });
 
   const handleSelect = e => {
@@ -147,9 +153,14 @@ export default function Socios() {
     abricerrarMInsert();
   };
   const BorrarMember = e => {
-    dispatch(deleteMember(deleteId))
+    dispatch(banMember(deleteId, input))
       .then(res => dispatch(getMembers()))
       .then(res => abricerrarMEliminar());
+    swal({
+      title: 'Socio baneado.',
+      icon: 'success',
+      button: 'Ok.',
+    });
   };
   const EditarMember = id => {
     console.log(input);
@@ -333,7 +344,7 @@ export default function Socios() {
   const bodyEliminar = (
     <div className={styles.modal}>
       <p>
-        ¿Estás seguro que deseas eliminar al socio <b>{input && input.name}</b>?
+        ¿Estás seguro que deseas banear al socio <b>{input && input.name}</b>?
       </p>
       <div align="right">
         <Button color="primary" onClick={BorrarMember}>
@@ -387,7 +398,7 @@ export default function Socios() {
                       onClick={() => selectAction(e, 'Editar')}
                     />
                     &nbsp;&nbsp;&nbsp;
-                    <Delete
+                    <FaBan
                       className={styles.iconos}
                       onClick={() => selectAction(e, 'Eliminar')}
                     />

@@ -1,0 +1,7 @@
+.fotologo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 13vh;
+}

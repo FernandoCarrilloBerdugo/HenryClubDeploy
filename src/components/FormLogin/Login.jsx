@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginMember, jasonWebToken } from '../../redux/Actions/Action';
+import { jasonWebToken } from '../../redux/Actions/Action';
 import { Link } from 'react-router-dom';
-import { useLocalStorage } from '../../custom/useLocalStorage';
-import Google from './google.png';
-import Facebook from './facebook.png';
+// import { useLocalStorage } from '../../custom/useLocalStorage';
+// import Google from './google.png';
+// import Facebook from './facebook.png';
 import logoHenry from '../../utils/fotos/LOGODIA.png';
-import Github from './github.png';
+// import Github from './github.png';
 import s from './Login.module.css';
-import validate from './validate';
-import axios from 'axios';
+// import validate from './validate';
+// import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
+// import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from '../Auth0/Login/Login';
 
 // aca
 
@@ -21,13 +23,17 @@ export default function Login() {
   //defino lo que va en los inputs
   const history = useHistory();
   const dispatch = useDispatch();
+  // const {user, isAuthenticated, isLoading} = useAuth0()
+
   const [datos, setDatos] = useState({
     email: '',
     password: '',
   });
 
-  const [cargandoUsuario, setCargandoUsuario] = useState(true);
-  const [token, setToken] = useState();
+  // console.log(user)
+
+  // const [cargandoUsuario, setCargandoUsuario] = useState(true);
+  // const [token, setToken] = useState();
 
   //manejo de cambios para ir guardando lo que voy escribiendo
   const handleInputChange = e => {
@@ -113,10 +119,12 @@ export default function Login() {
           </button>
 
           <br />
+
           <p>
             Aun no tienes cuenta? <Link to="/register">Registrate!</Link>
           </p>
-        </form>
+        <LoginButton />
+          </form>
       </div>
     </div>
   );

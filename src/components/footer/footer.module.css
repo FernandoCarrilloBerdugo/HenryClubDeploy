@@ -122,12 +122,13 @@
   text-shadow: 3px 3px 3px rgb(0, 0, 0);
 }
 .contacto h3 {
-  text-align: end;
+  text-align: center;
   font-size: 20px;
   margin-bottom: 10px;
   text-transform: uppercase;
   color: #fff;
 }
+
 .contacto ul li {
   list-style: none;
   margin-bottom: 5px;
@@ -148,3 +149,4 @@
   transition: all 0.3s ease;
   text-shadow: 3px 3px 3px rgb(0, 0, 0);
 }
+

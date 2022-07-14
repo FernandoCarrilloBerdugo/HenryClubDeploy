@@ -84,7 +84,8 @@ export default function footer() {
           <h3>Contacto</h3>
           <ul>
             <li>
-              <FaEnvelope /> COMUNICACIONES@CLUBHENRY.ORG.AR
+              <FaEnvelope /> clubdehenry@gmail.com
+
             </li>
             <li>
               <FaPhoneAlt /> Tel: (011) - 555 - 7600
@@ -105,3 +106,4 @@ export default function footer() {
     </div>
   );
 }
+
