@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategorySport } from '../../redux/Actions/Action';
+import { getCategorySport, detailMember } from '../../redux/Actions/Action';
 // import CardSport from '../CardDeporte/CardSport';
 import SportCard from '../CardSport/SportCard';
 import { Link } from 'react-router-dom';
@@ -30,6 +30,7 @@ export default function Hockey() {
 
   useEffect(() => {
     dispatch(getCategorySport())
+    localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
   }, [dispatch])
 
   return (

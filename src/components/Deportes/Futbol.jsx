@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SportCard from '../CardSport/SportCard';
 import './Futbol.css';
 import { Link } from 'react-router-dom';
-import { getCategorySport } from "../../redux/Actions/Action";
+import { getCategorySport, detailMember } from "../../redux/Actions/Action";
 import Footer from '../footer/footer.jsx';
 import NavBar from '../../navbar/navbar';
 import Barra from '../../Barra/Barra';
@@ -30,6 +30,7 @@ export default function Futbol() {
 
   useEffect(() => {
     dispatch(getCategorySport())
+    localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
   }, [dispatch])
 
   return (
