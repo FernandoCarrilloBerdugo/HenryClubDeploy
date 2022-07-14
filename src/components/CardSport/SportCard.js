@@ -5,11 +5,10 @@ import { payment } from "../../redux/Actions/Action";
 import "./SportCard.css";
 import { useState } from "react";
 
-export default function SportCard({sport}) {
-
+export default function SportCard({ sport }) {
 	const dispatch = useDispatch();
 
-	const member = useSelector(state => state.memberDetail)
+	const member = useSelector((state) => state.memberDetail);
 
 	const [input, setInput] = useState({
 		payer_email: localStorage.getItem("data")
@@ -35,27 +34,31 @@ export default function SportCard({sport}) {
 
 	useEffect(() => {
 		input.items[0].id &&
-			dispatch(payment(input)).then((url) => window.open(url, "_blank")).then(setInput({
-        payer_email: localStorage.getItem("data")
-          ? JSON.parse(localStorage.getItem("data")).email
-          : "",
-        items: [
-          {
-            //id del usuario loggeado
-            id: "",
-            //id de la actividad
-            category_id: "",
-            //titulo de la actividad
-            title: "",
-            //descripción de la actividad
-            description: "",
-            //Cantidad a comprar (siempre 1 por ser inscripción)
-            quantity: 1,
-            //Precio de la inscripción
-            unit_price: 0,
-          },
-        ],
-      }));
+			dispatch(payment(input))
+				.then((url) => window.open(url, "_blank"))
+				.then(
+					setInput({
+						payer_email: localStorage.getItem("data")
+							? JSON.parse(localStorage.getItem("data")).email
+							: "",
+						items: [
+							{
+								//id del usuario loggeado
+								id: "",
+								//id de la actividad
+								category_id: "",
+								//titulo de la actividad
+								title: "",
+								//descripción de la actividad
+								description: "",
+								//Cantidad a comprar (siempre 1 por ser inscripción)
+								quantity: 1,
+								//Precio de la inscripción
+								unit_price: 0,
+							},
+						],
+					})
+				);
 	}, [input]);
 
 	const handleClick = (e) => {
@@ -85,22 +88,23 @@ export default function SportCard({sport}) {
 						<p>
 							Horarios: De {sport.start} a {sport.finish}
 						</p>
-						<p>Comienza: {sport.day}</p>
 						<p>Profesor: {sport.user.name}</p>
-						<p>${sport.fee}</p>
+						<p>Precio Mensual: ${sport.fee}</p>
 					</div>
 					{
 						//Eres miembro? (estas inscrito ? no renderices boton : renderiza boton) : Registrate para poder inscribirte
-					localStorage.getItem('token') 	
-					? 	(	!member.inscriptions.filter(activity => activity.CategorySportId === sport.id).length >= 1 		 
-					?	<button onClick={handleClick}>
-					Inscribete
-					</button>		 
-					:	<p>Ya estás inscrito a esta actividad</p>			) 		
-					: <p>Registrate para poder inscribirte</p>
-
-
-				}
+						localStorage.getItem("token") ? (
+							!member.inscriptions.filter(
+								(activity) => activity.CategorySportId === sport.id
+							).length >= 1 ? (
+								<button onClick={handleClick}>Inscribete</button>
+							) : (
+								<p>Ya estás inscrito a esta actividad</p>
+							)
+						) : (
+							<p>Registrate para poder inscribirte</p>
+						)
+					}
 				</ContenedorModal>
 			}
 		</div>

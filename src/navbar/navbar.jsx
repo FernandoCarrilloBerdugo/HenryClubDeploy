@@ -15,13 +15,8 @@ import { useHistory } from 'react-router-dom';
 
 export default function Navbar() {
   const history = useHistory()
-  const dispatch = useDispatch()
   const { logout, isAuthenticated } = useAuth0()
   const member = useSelector(state => state.memberDetail);
-
-  useEffect(()=> {
-    localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
-  },[])
 
   const alertaLogOut = () => {
     window.localStorage.removeItem('data');
