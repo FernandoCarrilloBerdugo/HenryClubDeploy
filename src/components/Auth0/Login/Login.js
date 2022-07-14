@@ -8,7 +8,7 @@ export default function LoginButton() {
   const {loginWithRedirect, user} = useAuth0()
 
   const handleClick= async () => {
-    loginWithRedirect({redirectUri: "http://localhost:3000/home"})
+    loginWithRedirect({redirectUri: "https://club-henry.vercel.app/home"})
   }
 
   return (
