@@ -48,14 +48,12 @@ import {
 
 } from './DataTypes';
 
-const url = process.env.API_URL
-
 //Get
 
 export function getMembers() {
 	return async (dispatch) => {
 		try {
-			let { data } = await axios.get(`${url}/user`);
+			let { data } = await axios.get("https://backhenryclub.herokuapp.com/user");
 			return dispatch({ type: ALL_MEMBERS, payload: data });
 		} catch (error) {
 			alert(error.response.data);
@@ -719,8 +717,7 @@ export const clearPage = () => {
 export function jasonWebToken(input) {
 	return async (dispatch) => {
 		try {
-			console.log(url)
-			let { data } = await axios.post(`${url}/login`, input);
+			let { data } = await axios.post("https://backhenryclub.herokuapp.com/login", input);
 			dispatch({ type: JWT, payload: data });
 			// localStorage.setItem(data);
 
