@@ -157,7 +157,7 @@ export default function Socios() {
       .then(res => dispatch(getMembers()))
       .then(res => abricerrarMEliminar());
     swal({
-      title: 'Socio baneado.',
+      title: `Socio ${input.isBanned ? "baneado" : "desbaneado"}.`,
       icon: 'success',
       button: 'Ok.',
     });
@@ -344,7 +344,7 @@ export default function Socios() {
   const bodyEliminar = (
     <div className={styles.modal}>
       <p>
-        ¿Estás seguro que deseas banear al socio <b>{input && input.name}</b>?
+        ¿Estás seguro que deseas {input.isBanned ? "desbanear" : "banear"} al socio <b>{input && input.name}</b>?
       </p>
       <div align="right">
         <Button color="primary" onClick={BorrarMember}>
@@ -392,6 +392,7 @@ export default function Socios() {
                   <TableCell>{e.email}</TableCell>
                   <TableCell>{e.role}</TableCell>
                   <TableCell>{e.dni}</TableCell>
+                  <TableCell>{e.isBanned ? "Baneado" : "No Baneado"}</TableCell>
                   <TableCell>
                     <Edit
                       className={styles.iconos}
