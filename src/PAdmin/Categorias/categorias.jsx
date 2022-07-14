@@ -247,10 +247,6 @@ export default function Categorias() {
             </TableCell>
 
             <TableCell>
-              Activar/Desactivar
-            </TableCell>
-
-            <TableCell>
               Eliminar
             </TableCell>
           </TableRow>
@@ -267,12 +263,6 @@ export default function Categorias() {
                     onClick={() => selectAction(category, 'Editar')}
                   />
                   &nbsp;&nbsp;&nbsp;
-                </TableCell>
-                <TableCell>
-                <FaBan
-                      className={styles.iconos}
-                      onClick={() => selectAction(category, 'Activar')}
-                    />
                 </TableCell>
                 <TableCell>
                   <Delete
@@ -292,10 +282,6 @@ export default function Categorias() {
 
       <Modal open={putModal} onClose={abricerrarMEdit}>
         {bodyEditar}
-      </Modal>
-
-      <Modal open={activateModal} onClose={abricerrarMActivar}>
-        {bodyActivar}
       </Modal>
 
       <Modal open={deleteModal} onClose={abricerrarMEliminar}>

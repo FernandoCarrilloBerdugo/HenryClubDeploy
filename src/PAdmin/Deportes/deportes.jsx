@@ -257,10 +257,6 @@ export default function Deportes() {
             </TableCell>
 
             <TableCell>
-              Activar/Desactivar
-            </TableCell>
-
-            <TableCell>
               Eliminar
             </TableCell>
           </TableRow>
@@ -277,12 +273,6 @@ export default function Deportes() {
                     onClick={() => selectAction(sport, 'Editar')}
                   />
                   &nbsp;&nbsp;&nbsp;
-                </TableCell>
-                <TableCell>
-                <FaBan
-                      className={styles.iconos}
-                      onClick={() => selectAction(sport, 'Activar')}
-                    />
                 </TableCell>
                 <TableCell>
                   <Delete
@@ -302,10 +292,6 @@ export default function Deportes() {
 
       <Modal open={putModal} onClose={abricerrarMEdit}>
         {bodyEditar}
-      </Modal>
-
-      <Modal open={activateModal} onClose={abricerrarMActivar}>
-        {bodyActivar}
       </Modal>
 
       <Modal open={deleteModal} onClose={abricerrarMEliminar}>
