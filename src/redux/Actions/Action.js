@@ -48,7 +48,7 @@ import {
 
 } from './DataTypes';
 
-const url = process.env.url
+const url = process.env.API_URL
 
 //Get
 
@@ -719,6 +719,7 @@ export const clearPage = () => {
 export function jasonWebToken(input) {
 	return async (dispatch) => {
 		try {
+			console.log(url)
 			let { data } = await axios.post(`${url}/login`, input);
 			dispatch({ type: JWT, payload: data });
 			// localStorage.setItem(data);
