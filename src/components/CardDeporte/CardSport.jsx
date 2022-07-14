@@ -69,6 +69,7 @@ export default function CardSport() {
                             <p>Horarios: De {activity.start} a {activity.finish}</p>
                             <p>Comienza: {activity.day}</p>
                             <p>Profesor: {activity.user.name}</p>
+                            <p>Pago Mensual</p>
                             <p>${activity.fee}</p>
                         </div>
                         <button onClick={handleClick} value={i}>Inscribete</button>

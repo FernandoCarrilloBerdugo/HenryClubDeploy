@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import logoHenry from '../utils/fotos/LOGONARANJA.png';
 import { FaArrowCircleRight, FaUserAlt } from 'react-icons/fa';
 import './NavBar.css';
-import { useState } from 'preact/hooks';
-import { loginMember } from '../redux/Actions/Action';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'preact/hooks';
+import { detailMember, loginMember } from '../redux/Actions/Action';
+import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import swal from 'sweetalert';
@@ -15,8 +15,13 @@ import { useHistory } from 'react-router-dom';
 
 export default function Navbar() {
   const history = useHistory()
+  const dispatch = useDispatch()
   const { logout, isAuthenticated } = useAuth0()
   const member = useSelector(state => state.memberDetail);
+
+  useEffect(()=> {
+    localStorage.getItem('token') && dispatch(detailMember(JSON.parse(localStorage.getItem('data')).id))
+  },[])
 
   const alertaLogOut = () => {
     window.localStorage.removeItem('data');
